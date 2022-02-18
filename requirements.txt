@@ -1,7 +1,7 @@
 flask
 flask_wtf
-flask_login
 flask_sqlalchemy
-wtforms
 flask_user
+flask_admin
+wtforms
 email_validator

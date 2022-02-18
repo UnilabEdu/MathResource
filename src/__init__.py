@@ -6,6 +6,7 @@ from flask_user import login_required, roles_required, UserManager
 from src.extensions import db
 from src.config import TestConfig
 from src.user.models import User, Role
+from src.admin import admin
 
 
 def create_app():
@@ -48,7 +49,6 @@ def create_app():
 
     # Setup Flask-User
     user_manager = UserManager(app, db, User)
-
+    # Setup Flask Admin
+    admin.init_app(app)
     return app
-
-
