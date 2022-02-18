@@ -41,10 +41,10 @@ def create_app():
             db.session.commit()
 
     from src.user.views import user_blueprint
-    from src.front_end.view import main_blueprint
+    from src.front_end.views import main_blueprint
 
     # app.register_blueprint(user_blueprint, url_prefix='/user')
-    # app.register_blueprint(main_blueprint)
+    app.register_blueprint(main_blueprint)
 
     # Setup Flask-User
     user_manager = UserManager(app, db, User)

@@ -8,3 +8,14 @@ main_blueprint = Blueprint('main',
 @main_blueprint.route('/')
 def main():
     return render_template("main.html")
+
+
+@main_blueprint.route('/contacts')
+def contacts():
+    return render_template('contacts.html')
+
+
+@main_blueprint.route('/about_project')
+def contacts():
+    return render_template('about.html')
+
