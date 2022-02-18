@@ -15,7 +15,7 @@ class LogOutLink(MenuLink):
         return url_for("user.logout")
 
 
-class QuestionManagerView(ModelView):
+class AdminModelView(ModelView):
 
     def is_accessible(self):
         # როგორ მოხდეს მომხმარებლის ვალიდაცია
@@ -28,5 +28,18 @@ class QuestionManagerView(ModelView):
         return redirect(url_for("user.login", next=request.url))
 
 
-admin.add_view(QuestionManagerView(DBModel, db.session))
+class TeacherModelView(ModelView):
+
+    def is_accessible(self):
+        # როგორ მოხდეს მომხმარებლის ვალიდაცია
+        # კონკრეტული როლით
+        if current_user.is_authenticated:
+            return True
+
+    def inaccessible_callback(self, name, **kwargs):
+        # რა მოხდეს არაავტორიზებული იუზერის შემთხვევაში
+        return redirect(url_for("user.login", next=request.url))
+
+
+admin.add_view(AdminModelView(DBModel, db.session))
 admin.add_link(LogOutLink(name="Logout"))
