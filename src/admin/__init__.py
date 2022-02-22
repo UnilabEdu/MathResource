@@ -5,7 +5,7 @@ from flask_admin.menu import MenuLink
 from flask_user import current_user
 
 from src.extensions import db
-from src.questions.models import DBModel
+from src.questions.models import User
 
 admin = Admin(name="Admin Panel", template_mode="bootstrap4")
 
@@ -41,5 +41,5 @@ class TeacherModelView(ModelView):
         return redirect(url_for("user.login", next=request.url))
 
 
-admin.add_view(AdminModelView(DBModel, db.session))
+admin.add_view(AdminModelView(User, db.session))
 admin.add_link(LogOutLink(name="Logout"))
