@@ -5,7 +5,7 @@ from flask_admin.menu import MenuLink
 from flask_user import current_user
 
 from src.extensions import db
-from src.questions.models import User
+from src.user.models import User
 
 admin = Admin(name="Admin Panel", template_mode="bootstrap4")
 

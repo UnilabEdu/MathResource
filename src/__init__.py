@@ -5,7 +5,7 @@ from flask_user import login_required, roles_required, UserManager
 
 from src.extensions import db
 from src.config import TestConfig
-from src.questions.models import User, Role
+from src.user.models import User, Role
 from src.admin import admin
 
 
