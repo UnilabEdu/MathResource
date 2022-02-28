@@ -3,9 +3,12 @@ import datetime
 from flask import Flask, render_template_string
 from flask_user import login_required, roles_required, UserManager
 
-from src.extensions import db
 from src.config import TestConfig
+from src.extensions import db
+
 from src.user.models import User, Role
+from src.questions.models import Answer
+
 from src.admin import admin
 
 
@@ -51,4 +54,5 @@ def create_app():
     user_manager = UserManager(app, db, User)
     # Setup Flask Admin
     admin.init_app(app)
+
     return app
