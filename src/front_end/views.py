@@ -16,6 +16,6 @@ def contacts():
 
 
 @main_blueprint.route('/about_project')
-def contacts():
+def about():
     return render_template('about.html')
 
