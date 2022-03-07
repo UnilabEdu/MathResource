@@ -23,21 +23,31 @@ def create_app():
     def create_tables():
         db.create_all()
         # Create 'member@example.com' user with no roles
-        if not User.query.filter(User.username == 'member').first():
+        if not User.query.filter(User.email == 'member').first():
             user = User(
-                username='member',
+                first_name='first_name',
+                last_name='last_name',
+                region='region',
+                school='school',
+                school_class='school_class',
+                email='email',
                 email_confirmed_at=datetime.datetime.utcnow(),
-                password=user_manager.hash_password('Password1'),
+                password=user_manager.hash_password('Password1')
             )
             db.session.add(user)
             db.session.commit()
 
         # Create 'admin@example.com' user with 'Admin' and 'Agent' roles
-        if not User.query.filter(User.username == 'admin').first():
+        if not User.query.filter(User.email == 'admin').first():
             user = User(
-                username='admin',
+                first_name='first_name',
+                last_name='last_name',
+                region='region',
+                school='school',
+                school_class='school_class',
+                email='email1',
                 email_confirmed_at=datetime.datetime.utcnow(),
-                password=user_manager.hash_password('Password1'),
+                password=user_manager.hash_password('Password1')
             )
             user.roles.append(Role(name='Admin'))
             user.roles.append(Role(name='Agent'))
