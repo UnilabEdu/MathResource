@@ -23,7 +23,7 @@ def create_app():
     def create_tables():
         db.create_all()
         # Create 'member@example.com' user with no roles
-        if not User.query.filter(User.email == 'member').first():
+        if not User.query.filter(User.email == 'email').first():
             user = User(
                 first_name='first_name',
                 last_name='last_name',
@@ -38,7 +38,7 @@ def create_app():
             db.session.commit()
 
         # Create 'admin@example.com' user with 'Admin' and 'Agent' roles
-        if not User.query.filter(User.email == 'admin').first():
+        if not User.query.filter(User.email == 'email1').first():
             user = User(
                 first_name='first_name',
                 last_name='last_name',
