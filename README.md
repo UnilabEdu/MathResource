@@ -6,7 +6,7 @@
 
 main branches: `deploy` | `develop` 
 
-temporary branches: `front` | `back` [ from `develop`]
+temporary branches: `front` | `back` [ from `develop` ]
 
 - `deploy` - stable branch
 - `develop` - working branch
