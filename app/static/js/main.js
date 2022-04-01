@@ -113,6 +113,8 @@ window.addEventListener('load', () => {
 
 // ----x-----x---- Filters
 
+// ------------- auth_page_interactions
+
 const addClass = (element) => {
   element.classList.add('active');
 };
@@ -137,6 +139,8 @@ const successMsgRemove = (element) => {
   element.classList.remove('success');
 };
 
+// --------------- error and success messages
+
 let engine = (id, serial) => {
   if (id.value.trim() === '') {
     errorMsgAdd(id);
@@ -152,6 +156,8 @@ let engine = (id, serial) => {
     successMsgAdd(successIcon[serial]);
   }
 };
+
+// --------------- button_click_and_submit_events
 
 registrationButton.addEventListener('click', () => {
   addClass(authForm);
@@ -255,3 +261,5 @@ profileOptionTwo.addEventListener('click', () => {
   removeClass(authContainer);
   removeClass(myProfile);
 });
+
+// ---x----x------ auth_page_interactions
