@@ -14,13 +14,15 @@ def register_user():
 
     if form.validate_on_submit():
 
-        name = form.name.data
+        first_name = form.first_name.data
         last_name = form.last_name.data
         region = form.region.data
+        school = form.school.data
+        school_class = form.school_class.data
         email = form.email.data
         password = form.password.data
 
-        user = User(name, last_name, region, email, password)
+        user = User(first_name, last_name, region,school ,school_class , email, password)
 
         try:
             user.create()
@@ -29,8 +31,10 @@ def register_user():
         else:
             flash('user registered!', "success")
 
-        form.name.data = ''
+        form.first_name.data = ''
         form.last_name.data = ''
+        form.school.data = ''
+        form.school_class.data = ''
         form.email.data = ''
         form.password.data = ''
 
