@@ -3,7 +3,7 @@ from flask_login import login_user, login_required, logout_user
 from src.user.forms import RegistrationForm, LoginForm
 from src.user.models import User
 
-user_blueprint = Blueprint('user',
+user_blueprint = Blueprint('users',
                            __name__,
                            template_folder='templates/users')
 
@@ -38,9 +38,9 @@ def register_user():
         form.email.data = ''
         form.password.data = ''
 
-        return redirect(url_for('user.register_user'))
+        return redirect(url_for('users.register_user'))
 
-    return render_template('register.html', form=form)
+    return render_template('auth.html', form=form)
 
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
