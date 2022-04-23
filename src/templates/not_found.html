@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+/>
+{% endblock %}
+
+{% block title %}
+page not found
+{% endblock %}
+
+{% block script_link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block conent %}
+  <body class="about-body">
+    <header>
+      <nav>
+        <div class="logo-wrapper">
+          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
+          </li>
+          <li>
+            <a href="about.html">პროექტის შესახებ</a>
+          </li>
+          <li>
+            <a href="contacts.html">კონტაქტი</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="page-not-found-container">
+      <div class="page-not-found-wrapper">
+        <div class="emoji-sad">
+          <div class="face">
+            <div class="eye-left"></div>
+            <div class="eye-right"></div>
+            <div class="mouth-sad"></div>
+          </div>
+        </div>
+        <h2>გვერდი ვერ მოიძებნა</h2>
+        <div class="main-page-route">
+          <i class="fa-solid fa-arrow-right"></i>
+          <a href="index.html">მთავარი გვერდი</a>
+        </div>
+      </div>
+    </section>
+
+    <script defer src="../static/js/main.js"></script>
+{% endblock %}

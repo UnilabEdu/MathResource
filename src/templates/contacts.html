@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+/>
+{% endblock %}
+
+{% block title %}
+Contacts
+{% endblock %}
+
+{% block script_link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block conent %}
+  <body class="about-body">
+    <header>
+      <nav>
+        <a href="{{ url_for('main.main') }}">
+          <div class="logo-wrapper">
+            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <div class="contacts-container">
+        <div class="contacts-titles">
+          <h2>კონტაქტი</h2>
+          <p>
+            ნებისმიერი კითხვის ან ხარვეზის შემთხვევაში გთხოვთ მოგვწეროთ მეილზე
+            ან ფეისფუქის გვერდზე
+          </p>
+        </div>
+        <div class="contacts-email">
+          <span>✉️</span>
+          <a href="#">unilabinfo@iliauni.edu.ge</a>
+        </div>
+        <div class="contacts-social-media">
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+      </div>
+    </section>
+
+    <script defer src="../static/js/main.js"></script>
+{% endblock %}
