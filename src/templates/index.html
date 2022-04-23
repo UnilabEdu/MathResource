@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <title>Math resource</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-    />
-  </head>
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block title %}
+Math resource
+{% endblock %}
+
+{% block script_link %}
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+{% endblock %}
+
+{% block conent %}
 
   <body>
     <header>
@@ -300,5 +305,4 @@
 
     <script defer src="../static/js/main.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  </body>
-</html>
+{% endblock %}

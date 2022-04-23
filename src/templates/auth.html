@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authorization</title>
-    <script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
+{% extends "base.html" %}
+
+{% block link %}
+
+{% endblock %}
+
+{% block title %}
+authorization
+{% endblock %}
+
+{% block script_link %}
+<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block conent %}
   <body class="about-body">
     <header>
       <nav>
@@ -163,7 +169,7 @@
           <div>
             <div class="input-icons">
 
-          {{ form.first_name(class="input") }}
+          {{ form.first_name(class="input", id="first_name") }}
 
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
@@ -178,7 +184,7 @@
           <div>
             <div class="input-icons">
 
-          {{ form.last_name(class="input") }}
+          {{ form.last_name(class="input", id="last_name") }}
 
         <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
@@ -192,7 +198,7 @@
         </div>
           <div>
             <div class="input-icons">
-              {{ form.region(class="input-icons") }}
+              {{ form.region(class="input-icons", id="region") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -206,7 +212,7 @@
           <div>
             <div class="input-icons">
 
-          {{ form.school(class="input") }}
+          {{ form.school(class="input", id="school") }}
 
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
@@ -220,7 +226,7 @@
         </div>
           <div>
             <div class="input-icons">
-          {{ form.school_class(class="input-icons") }}
+          {{ form.school_class(class="input-icons", id="grade") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -232,7 +238,7 @@
           <div class="email-msg sb4">ი-მეილი უკვე არსებობს</div>
         </div>
             <div class="input-icons">
-          {{ form.email(class="input") }}
+          {{ form.email(class="input", id="register_email") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -243,7 +249,7 @@
           <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
         </div>
         <div class="input-icons">
-          {{ form.password(class="input") }}
+          {{ form.password(class="input", id="new_password") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -254,7 +260,7 @@
           <div class="email-msg sb4">პაროლი არ ემთხვევა</div>
         </div>
         <div class="input-icons">
-          {{ form.pass_confirm(class="input") }}
+          {{ form.pass_confirm(class="input", id="repeat_new_pass") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -264,7 +270,7 @@
           {{ form.rules }}
           {{ form.rules.label }}
             </div>
-          {{ form.submit(class="enter") }}
+          {{ form.submit(class="enter", id="agree-policies") }}
         </form>
       </section>
       <section class="successful-registration" id="successful-registration">
@@ -392,5 +398,5 @@
     </main>
     
     <script defer src="../static/js/main.js"></script>
-  </body>
-</html>
+
+{% endblock %}

@@ -12,17 +12,23 @@ user_blueprint = Blueprint('users',
 def register_user():
     form = RegistrationForm()
 
+    print('before validate')
+
     if form.validate_on_submit():
 
+        print("after validate")
         first_name = form.first_name.data
         last_name = form.last_name.data
         region = form.region.data
         school = form.school.data
         school_class = form.school_class.data
         email = form.email.data
-        password = form.password.data
+        password = 'random_pass'
+
 
         user = User(first_name, last_name, region,school ,school_class , email, password)
+
+        print(user)
 
         try:
             user.create()
@@ -46,8 +52,6 @@ def register_user():
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-
-    print(form.validate_on_submit())
 
     if form.validate_on_submit():
 
