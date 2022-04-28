@@ -207,19 +207,21 @@ authForm.addEventListener('submit', (e) => {
 
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
   if (
     firstName.value.trim() !== '' &&
     lastName.value.trim() !== '' &&
     region.value.trim() !== '' &&
     school.value.trim() !== '' &&
     grade.value.trim() !== '' &&
-    registeringEmail.value.trim() !== '' &&
+    registeringEmail.value.trim() !== '' && // TODO: ორჯერ მეორდება სავარაუდოდ ქვემოთ სხვა რამე უნდა ეწეროს
     repeatPassword.value.trim() !== '' &&
     registeringEmail.value.trim() !== ''
   ) {
+    registerForm.submit()
     addClass(authContainer);
     addClass(successPage);
-    registerForm.reset();
+    // registerForm.reset();
   } else {
     engine(firstName, 5);
     engine(lastName, 6);

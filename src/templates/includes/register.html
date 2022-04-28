@@ -1,0 +1,133 @@
+<form method="POST" action="{{url_for('users.register_user')}}" class="register-form" id="register-form">
+    {{ form.hidden_tag() }}
+    
+    <h3>ახალი ანგარიშის შექმნა</h3>
+
+    <div class="msg-wrapper">
+<!--        TODO: pass მეორდება for attribute-ებში -->
+      <label for="pass">სახელი</label>
+      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
+    </div>
+
+    <div>
+      <div class="input-icons">
+        {{ form.first_name(class="input", id="first_name") }}
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-wrapper">
+      <label for="pass">გვარი</label>
+      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
+    </div>
+
+    <div>
+      <div class="input-icons">
+        {{ form.last_name(class="input", id="last_name") }}
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-wrapper">
+      <label for="pass">რეგიონი</label>
+      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
+    </div>
+
+    <div>
+      <div class="input-icons">
+        {{ form.region(class="input-icons", id="region") }}
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-wrapper">
+      <label for="pass">სკოლა</label>
+      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
+    </div>
+
+
+    <div>
+      <div class="input-icons">
+        {{ form.school(class="input", id="school") }}
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-wrapper">
+      <label for="pass">კლასი</label>
+      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
+    </div>
+
+
+    <div>
+      <div class="input-icons">
+        {{ form.school_class(class="input-icons", id="grade") }}
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="msg-wrapper">
+      <label for="pass">ი-მეილი</label>
+      <div class="email-msg sb4">ი-მეილი უკვე არსებობს</div>
+    </div>
+
+
+    <div class="input-icons">
+      {{ form.email(class="input", id="register_email") }}
+      <div>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+      </div>
+    </div>
+
+
+    <div class="msg-wrapper">
+      <label for="pass">პაროლი</label>
+      <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+    </div>
+
+    <div class="input-icons">
+      {{ form.password(class="input", id="new_password") }}
+      <div>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+      </div>
+    </div>
+
+    <div class="msg-wrapper">
+      <label for="pass">გაიმეორეთ პაროლი</label>
+      <div class="email-msg sb4">პაროლი არ ემთხვევა</div>
+    </div>
+
+
+    <div class="input-icons">
+      {{ form.pass_confirm(class="input", id="repeat_new_pass") }}
+      <div>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+      </div>
+    </div>
+
+    <div class="agree-policies-wrapper">
+      {{ form.rules }}
+      {{ form.rules.label }}
+    </div>
+
+    <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">
+  </form>
