@@ -4,31 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> {% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
+    {% block link %}
+
+    {% endblock %}
+    <title>{% block title %}
+
+            {% endblock %}
+    </title>
+    {% block script_link %}
+
+    {% endblock %}
   </head>
-  <body class="about-body">
+
+  <body>
     <header>
       <nav>
-        <a href="index.html">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
+        <div class="logo-wrapper">
+          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+        </div>
         <ul class="nav-links">
           <li>
-            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
+            <a href="{{ url_for('users.register_user') }}">ავტორიზაცია</a>
           </li>
           <li>
-            <a href="about.html">პროექტის შესახებ</a>
+            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
           </li>
           <li>
-            <a href="contacts.html">კონტაქტი</a>
+            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
           </li>
         </ul>
       </nav>
     </header>
-    {% block content %}{% endblock %}
-    <script defer src="../static/js/main.js"></script>
-  </body>
+
+  {% block conent %}
+
+  {% endblock %}
+
+</body>
 </html>
+
+

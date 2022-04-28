@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, login_required, logout_user
 from src.user.forms import RegistrationForm, LoginForm
 from src.user.models import User
-from sqlalchemy.sql import func
 
 user_blueprint = Blueprint('users',
                            __name__,
@@ -11,10 +10,10 @@ user_blueprint = Blueprint('users',
 
 @user_blueprint.route('/registration', methods=['GET', 'POST'])
 def register_user():
-    form = RegistrationForm(request.form)
+    form = RegistrationForm()
 
-    # return request.args
-    print("Before validation")
+    print('before validate')
+
     if form.validate_on_submit():
 
         print("after validate")
@@ -24,19 +23,10 @@ def register_user():
         school = form.school.data
         school_class = form.school_class.data
         email = form.email.data
-        password = form.password.data
+        password = 'random_pass'
 
 
-        user = User(
-            first_name,
-            last_name,
-            region,
-            school,
-            school_class,
-            email,
-            func.now(),
-            password
-        )
+        user = User(first_name, last_name, region,school ,school_class , email, password)
 
         print(user)
 

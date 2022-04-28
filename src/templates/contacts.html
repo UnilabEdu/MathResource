@@ -1,36 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
+{% extends "base.html" %}
+
+{% block link %}
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+/>
+{% endblock %}
+
+{% block title %}
+Contacts
+{% endblock %}
+
+{% block script_link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block conent %}
   <body class="about-body">
     <header>
       <nav>
-        <a href="index.html">
+        <a href="{{ url_for('main.main') }}">
           <div class="logo-wrapper">
             <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
           </div>
         </a>
         <ul class="nav-links">
           <li>
-            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
+            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
           </li>
           <li>
-            <a href="about.html">პროექტის შესახებ</a>
+            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
           </li>
           <li>
-            <a href="contacts.html">კონტაქტი</a>
+            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
           </li>
         </ul>
       </nav>
@@ -55,5 +60,4 @@
     </section>
 
     <script defer src="../static/js/main.js"></script>
-  </body>
-</html>
+{% endblock %}

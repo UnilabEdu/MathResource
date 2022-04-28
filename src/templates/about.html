@@ -1,7 +1,34 @@
-{% extends "base.html" %}
-{% block title %} About Page {% endblock %}
-{% block content %}
-  <section>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Project</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body class="about-body">
+    <header>
+      <nav>
+        <a href="{{ url_for('main.main') }}">
+          <div class="logo-wrapper">
+            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section>
       <div class="about-contaioner">
         <div class="about-container-top-wrapper">
           <div class="about-container-top">
@@ -24,15 +51,72 @@
           <div class="about-container-bottom">
             <h2>პროექტზე მომუშავე გუნდი</h2>
             <div class="about-container-bottom-team-info">
-            {% for person in team %}
               <div class="team-info">
-                <h4>{{person.get("person")}}</h4>
-                <p>{{person.get("position")}}</p>
+                <h4>სანდრო ასათიანი</h4>
+                <p>ოუნერი</p>
               </div>
-            {% endfor %}
+              <div class="team-info">
+                <h4>თემო ჩიჩუა</h4>
+                <p>ოუნერი Back-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>ანანო ასპანიძე</h4>
+                <p>პროექტის მენეჯერი (ჰედი)</p>
+              </div>
+              <div class="team-info">
+                <h4>ნენე არაბული</h4>
+                <p>დიზაინი (ჰედი)</p>
+              </div>
+              <div class="team-info">
+                <h4>მარიშა არაბული</h4>
+                <p>დიზაინი (ჰედი)</p>
+              </div>
+              <div class="team-info">
+                <h4>ეკატერინა ხარბედია</h4>
+                <p>დიზაინი (ჰედი)</p>
+              </div>
+              <div class="team-info">
+                <h4>ნოკა ყიფიანი</h4>
+                <p>Front-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>დავით ცალანი</h4>
+                <p>Front-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>დავით ჭინჭარაშვილი</h4>
+                <p>Back-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>გიორგი მხეიძე</h4>
+                <p>პროექტის მენეჯერი</p>
+              </div>
+              <div class="team-info">
+                <h4>ოთო ბენიაიძე</h4>
+                <p>დიზაინი</p>
+              </div>
+              <div class="team-info">
+                <h4>ლუკა ბლიაძე</h4>
+                <p>Front-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>მერი გოგიჩაშვილი</h4>
+                <p>Front-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>გიორგი ბიწაძე</h4>
+                <p>Front-End დეველოპერი</p>
+              </div>
+              <div class="team-info">
+                <h4>ნიკა ქვრივიშვილი</h4>
+                <p>Back-End დეველოპერი</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-{% endblock %}
+
+    <script defer src="../static/js/main.js"></script>
+  </body>
+</html>

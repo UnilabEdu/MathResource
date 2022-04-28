@@ -1,30 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authorization</title>
-    <script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
+{% extends "base.html" %}
+
+{% block link %}
+
+{% endblock %}
+
+{% block title %}
+authorization
+{% endblock %}
+
+{% block script_link %}
+<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block conent %}
   <body class="about-body">
     <header>
       <nav>
-        <a href="index.html">
+        <a href="{{ url_for('main.main') }}">
           <div class="logo-wrapper">
             <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
           </div>
         </a>
         <ul class="nav-links">
           <li>
-            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
+            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
           </li>
           <li>
-            <a href="about.html">პროექტის შესახებ</a>
+            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
           </li>
           <li>
-            <a href="contacts.html">კონტაქტი</a>
+            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
           </li>
         </ul>
       </nav>
@@ -152,7 +158,9 @@
         </div>
           <button type="button" class="registration" id="registration-on-email">რეგისტრაცია</button>
         </form>
-        <form action="submit" class="register-form" id="register-form">
+
+        <form method="POST" action="submit" class="register-form" id="register-form">
+          {{ form.hidden_tag() }}
           <h3>ახალი ანგარიშის შექმნა</h3>
           <div class="msg-wrapper">
             <label for="pass">სახელი</label>
@@ -160,12 +168,9 @@
           </div>
           <div>
             <div class="input-icons">
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            class="input"
-          />
+
+          {{ form.first_name(class="input", id="first_name") }}
+
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -178,13 +183,10 @@
         </div>
           <div>
             <div class="input-icons">
-          <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            class="input"
-          />
-          <div>
+
+          {{ form.last_name(class="input", id="last_name") }}
+
+        <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
         </div>
@@ -196,20 +198,7 @@
         </div>
           <div>
             <div class="input-icons">
-              <select name="region" id="region">
-                <option value="shida-kartli">შიდა-ქართლი</option>
-                <option value="kvemo-kartli">ქვემო-ქართლი</option>
-                <option value="samtskhe-javakheti">სამცხე-ჯავახეთი</option>
-                <option value="mtskheta-mtianeti">მცხეთა-მთიანეთი</option>
-                <option value="kakheti">კახეთი</option>
-                <option value="imereti">იმერეთი</option>
-                <option value="adjara">აჭარა</option>
-                <option value="samegrelo">სამეგრელო</option>
-                <option value="guria">გურია</option>
-                <option value="racha-lechkhumi">რაჭა-ლეჩხუმი</option>
-                <option value="svaneti">სვანეთი</option>
-                <option value="aphkhazeti">აფხაზეთი</option>
-              </select>
+              {{ form.region(class="input-icons", id="region") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -222,12 +211,9 @@
         </div>
           <div>
             <div class="input-icons">
-          <input
-            type="text"
-            id="school"
-            name="school"
-            class="input"
-          />
+
+          {{ form.school(class="input", id="school") }}
+
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -240,20 +226,7 @@
         </div>
           <div>
             <div class="input-icons">
-          <select name="grade" id="grade">
-            <option value="I">I</option>
-            <option value="II">II</option>
-            <option value="III">III</option>
-            <option value="IV">IV</option>
-            <option value="V">V</option>
-            <option value="VI">VI</option>
-            <option value="VII">VII</option>
-            <option value="VIII">VIII</option>
-            <option value="IX">IX</option>
-            <option value="X">X</option>
-            <option value="XI">XI</option>
-            <option value="XII">XII</option>
-          </select>
+          {{ form.school_class(class="input-icons", id="grade") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -265,12 +238,7 @@
           <div class="email-msg sb4">ი-მეილი უკვე არსებობს</div>
         </div>
             <div class="input-icons">
-          <input
-            type="text"
-            name="email"
-            class="input"
-            id="register_email"
-          />
+          {{ form.email(class="input", id="register_email") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -281,12 +249,7 @@
           <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
         </div>
         <div class="input-icons">
-          <input
-            type="password"
-            id="new_password"
-            name="new_password"
-            class="input"
-          />
+          {{ form.password(class="input", id="new_password") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -297,26 +260,17 @@
           <div class="email-msg sb4">პაროლი არ ემთხვევა</div>
         </div>
         <div class="input-icons">
-          <input
-            type="password"
-            id="repeat_new_pass"
-            name="repeat_new_pass"
-            class="input"
-          />
+          {{ form.pass_confirm(class="input", id="repeat_new_pass") }}
           <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
         </div>
         </div>
           <div class="agree-policies-wrapper">
-          <input
-                type="checkbox"
-                id="agree-policies"
-                name="agreement"
-                checked
-              /><label for="agreement">ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს</label>
+          {{ form.rules }}
+          {{ form.rules.label }}
             </div>
-          <button type="submit" class="enter" id="registration-button">რეგისტრაცია</button>
+          {{ form.submit(class="enter", id="agree-policies") }}
         </form>
       </section>
       <section class="successful-registration" id="successful-registration">
@@ -444,5 +398,5 @@
     </main>
     
     <script defer src="../static/js/main.js"></script>
-  </body>
-</html>
+
+{% endblock %}
