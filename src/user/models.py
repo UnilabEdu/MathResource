@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
 
     answers = db.relationship('Answer', backref='users', lazy=True)
 
+
     def __init__(self, first_name, last_name, region, school, school_class, email, email_confirmed_at, password):
         self.email = email
         self.school_class = school_class
@@ -30,6 +31,13 @@ class User(db.Model, UserMixin):
         self.first_name = first_name
         self.email_confirmed_at = email_confirmed_at
         self.password = password
+
+    def create(self):
+        print(self)
+        db.session.add(self)
+        db.session.commit()
+
+
 
 
 class Role(db.Model):
