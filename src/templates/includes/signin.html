@@ -1,0 +1,70 @@
+<!--        TODO: write url and method -->
+<form action="" class="auth-form" id="auth-form">
+    <h3>ავტორიზაცია</h3>
+    <div class="msg-wrapper">
+      <label for="email">ი-მეილი</label>
+      <div class="email-msg sb4">სცადეთ სხვა იმეილი</div>
+    </div>
+    <div class="input-icons">
+      <input type="text" name="email" class="input" id="email" />
+      <div>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+      </div>
+    </div>
+    <div class="msg-wrapper">
+      <label for="pass">პაროლი</label>
+      <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+    </div>
+    <div>
+      <div class="input-icons">
+        <input type="password" id="pass" name="password" class="input" />
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="restore-wrapper">
+      <div>
+        <input type="checkbox" id="remember" class="remember input" name="remember" checked /><label
+          class="remember">დამახსოვრება</label>
+      </div>
+      <button type="button" class="recovery" id="recovery-on-auth">პაროლის აღდგენა</button>
+    </div>
+    <button type="submit" class="enter" id="enter">შესვლა</button>
+    <button type="button" class="registration" id="registration-on-auth">რეგისტრაცია</button>
+  </form>
+  <form action="" class="pass-form" id="pass-form">
+    <h3>პაროლის აღდგენა</h3>
+    <div class="msg-wrapper">
+      <label for="pass">ახალი პაროლი</label>
+      <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+    </div>
+    <div>
+      <div class="input-icons">
+        <input type="password" id="recovery_password" name="password" class="input" />
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="msg-wrapper">
+      <label for="pass">გაიმეორეთ პაროლი</label>
+      <div class="email-msg sb4">პაროლი არ ემთხვევა</div>
+    </div>
+    <div>
+      <div class="input-icons">
+        <input type="password" id="repeat_pass" name="password" class="input" />
+        <div>
+          <i class="fas fa-exclamation-circle failure-icon"></i>
+          <i class="far fa-check-circle success-icon"></i>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="recovery" id="recovery">პაროლის აღდგენა</button>
+    </div>
+    <button type="submit" class="enter" id="remember-button">დამახსოვრება</button>
+    <button type="button" class="registration" id="registration-on-recovery">რეგისტრაცია</button>
+  </form>
