@@ -39,7 +39,9 @@ class RegistrationForm(FlaskForm):
     email = EmailField('Email', [DataRequired()])
     password = PasswordField('Password',
                              validators=[DataRequired(), EqualTo('pass_confirm', message='Passwords Must Match!')])
-    pass_confirm = PasswordField('Confirm password', validators=[DataRequired()])
+    pass_confirm = PasswordField(label="Confirm Password",
+                                    validators=[EqualTo("password", message="passwords don't match")],
+                                    render_kw={"placeholder": "Confirm Password"})
 
     rules = BooleanField(' ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს', validators=[DataRequired()])
 
