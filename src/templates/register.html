@@ -11,7 +11,8 @@
 
     <div>
       <div class="input-icons">
-        {{ form.first_name(class="input", id="first_name") }}
+          {{ form.first_name.label }}
+          {{ form.first_name }}
         <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>

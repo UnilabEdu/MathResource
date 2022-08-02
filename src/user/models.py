@@ -1,5 +1,4 @@
-from flask_login import UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_user import UserMixin
 from src.extensions import db
 
 
@@ -31,7 +30,7 @@ class User(db.Model, UserMixin):
         self.last_name = last_name
         self.first_name = first_name
         self.email_confirmed_at = email_confirmed_at
-        self.password = generate_password_hash(password)
+        self.password = password
 
     def create(self):
         print(self)

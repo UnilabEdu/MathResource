@@ -12,7 +12,7 @@ admin = Admin(name="Admin Panel", template_mode="bootstrap4")
 
 class LogOutLink(MenuLink):
     def get_url(self):
-        return url_for("user.logout")
+        return url_for("auth.log_out")
 
 
 class AdminModelView(ModelView):
