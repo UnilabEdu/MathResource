@@ -1,3 +1,22 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block script_link %}
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+{% endblock %}
+
+{% block conent %}
+
 <form method="POST" action="{{url_for('auth.register_user')}}" class="register-form" id="register-form">
     {{ form.hidden_tag() }}
     
@@ -132,3 +151,4 @@
 
     <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">
   </form>
+{% endblock %}
