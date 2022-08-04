@@ -1,3 +1,5 @@
+{% from "macro.html" import nav_bar_regular, button_filter_buttons%}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,15 +25,18 @@
           <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
         </div>
         <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('auth.register_user') }}">რეგისტრაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
+            <li>
+                {{ nav_bar_regular('auth.login','ავტორიზაცია') }}
+            </li>
+            <li>
+                {{ nav_bar_regular('auth.register_user','რეგისტრაცია') }}
+            </li>
+            <li>
+                {{ nav_bar_regular('main.about','პროექტის შესახებ') }}
+            </li>
+            <li>
+                {{ nav_bar_regular('main.contacts','კონტაქტი') }}
+            </li>
         </ul>
       </nav>
     </header>
