@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block link %}
-<link rel="stylesheet" href="../static/css/style.css" />
+<link
+        rel="stylesheet"
+        href="../static/css/style.css" />
 {% endblock %}
 
 {% block title %}
-Math resource
+    Math resource
 {% endblock %}
 
 {% block script_link %}
@@ -15,26 +17,10 @@ Math resource
 />
 {% endblock %}
 
-{% block conent %}
+{% block content %}
 
   <body>
     <header>
-      <nav>
-        <div class="logo-wrapper">
-          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-        </div>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('users.register_user') }}">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
-      </nav>
     </header>
     <h1>ამოხსენი მათემატიკური ამოცანები პითონის პროგრამული ენით</h1>
 
@@ -305,4 +291,5 @@ Math resource
 
     <script defer src="../static/js/main.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </body>
 {% endblock %}

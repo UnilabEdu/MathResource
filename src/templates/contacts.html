@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block link %}
 <link
@@ -11,35 +11,17 @@
 {% endblock %}
 
 {% block title %}
-Contacts
+Contact
 {% endblock %}
 
-{% block script_link %}
-<link rel="stylesheet" href="../static/css/style.css" />
-{% endblock %}
-
-{% block conent %}
-  <body class="about-body">
     <header>
       <nav>
-        <a href="{{ url_for('main.main') }}">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
+          <a href="{{ url_for('main.main') }}"></a>
       </nav>
     </header>
+
+{% block content %}
+    <body class="about-body">
     <section>
       <div class="contacts-container">
         <div class="contacts-titles">
@@ -60,4 +42,5 @@ Contacts
     </section>
 
     <script defer src="../static/js/main.js"></script>
+    </body>
 {% endblock %}

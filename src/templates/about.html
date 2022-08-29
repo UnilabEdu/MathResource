@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Project</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
-  <body class="about-body">
+{% extends 'base.html' %}
+      {% block title %}
+          About Project
+      {% endblock %}
+
+
     <header>
       <nav>
-        <a href="{{ url_for('main.main') }}">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
+        <a href="{{ url_for('main.main') }}"></a>
       </nav>
     </header>
+
+    {% block content %}
+    <body class="about-body">
     <section>
       <div class="about-contaioner">
         <div class="about-container-top-wrapper">
@@ -116,7 +100,6 @@
         </div>
       </div>
     </section>
-
     <script defer src="../static/js/main.js"></script>
-  </body>
-</html>
+    </body>
+    {% endblock %}

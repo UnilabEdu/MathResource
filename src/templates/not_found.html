@@ -11,33 +11,11 @@
 {% endblock %}
 
 {% block title %}
-page not found
+Page not found
 {% endblock %}
 
-{% block script_link %}
-<link rel="stylesheet" href="../static/css/style.css" />
-{% endblock %}
-
-{% block conent %}
+{% block content %}
   <body class="about-body">
-    <header>
-      <nav>
-        <div class="logo-wrapper">
-          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-        </div>
-        <ul class="nav-links">
-          <li>
-            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="about.html">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="contacts.html">კონტაქტი</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
     <section class="page-not-found-container">
       <div class="page-not-found-wrapper">
         <div class="emoji-sad">
@@ -56,4 +34,5 @@ page not found
     </section>
 
     <script defer src="../static/js/main.js"></script>
+  </body>
 {% endblock %}

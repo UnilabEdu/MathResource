@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block link %}
-
 {% endblock %}
 
 {% block title %}
@@ -10,29 +9,13 @@ authorization
 
 {% block script_link %}
 <script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../static/css/style.css" />
 {% endblock %}
 
-{% block conent %}
+{% block content %}
   <body class="about-body">
     <header>
       <nav>
-        <a href="{{ url_for('main.main') }}">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('users.register_user') }}" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
+          <a href="{{ url_for('main.main') }}"></a>
       </nav>
     </header>
     <main class="authorization" >
@@ -71,5 +54,5 @@ authorization
     </main>
     
     <script defer src="../static/js/main.js"></script>
-
+  </body>
 {% endblock %}
