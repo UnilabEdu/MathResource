@@ -1,45 +1,87 @@
 from flask import redirect, url_for, request
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.menu import MenuLink
 from flask_user import current_user
 
 from src.extensions import db
 from src.user.models import User
 
-admin = Admin(name="Admin Panel", template_mode="bootstrap4")
+
+class AuthMixin(object):
+
+    def is_accessible(self):
+        return current_user.has_roles('Admin')
+
+    def _handle_view(self, name, **kwargs):
+        if not self.is_accessible():
+            return redirect(url_for("auth.login"))
 
 
 class LogOutLink(MenuLink):
     def get_url(self):
-        return url_for("auth.log_out")
+        return url_for("auth.logout")
 
 
 class AdminModelView(ModelView):
-
-    def is_accessible(self):
-        # როგორ მოხდეს მომხმარებლის ვალიდაცია
-        # კონკრეტული როლით
-        if current_user.is_authenticated and current_user.has_roles("Admin"):
-            return True
-
-    def inaccessible_callback(self, name, **kwargs):
-        # რა მოხდეს არაავტორიზებული იუზერის შემთხვევაში
-        return redirect(url_for("user.login", next=request.url))
+    pass
 
 
-class TeacherModelView(ModelView):
-
-    def is_accessible(self):
-        # როგორ მოხდეს მომხმარებლის ვალიდაცია
-        # კონკრეტული როლით
-        if current_user.is_authenticated:
-            return True
-
-    def inaccessible_callback(self, name, **kwargs):
-        # რა მოხდეს არაავტორიზებული იუზერის შემთხვევაში
-        return redirect(url_for("user.login", next=request.url))
+class TeacherModelView(ModelView, AuthMixin):
+    can_create = False
+    can_delete = False
+    can_edit = True
+    column_exclude_list = ['password', ]
+    column_searchable_list = ['first_name', 'last_name', 'email']
+    column_filters = ['last_name', 'school']
+    column_editable_list = ['email', 'school']
+    can_export = True
 
 
-admin.add_view(AdminModelView(User, db.session))
-admin.add_link(LogOutLink(name="Logout"))
+class UserView(ModelView, AuthMixin):
+    can_create = True
+    can_delete = False
+    can_edit = True
+    column_exclude_list = ['password', ]
+    column_searchable_list = ['first_name', 'last_name', 'email']
+    column_filters = ['roles']
+    column_editable_list = ['roles']
+    can_export = True
+
+
+class RoleView(ModelView, AuthMixin):
+    can_create = False
+    can_delete = False
+    can_edit = True
+    column_searchable_list = ['name']
+    column_filters = ['name']
+    column_editable_list = ['name']
+    can_export = True
+
+
+class StaticView(FileAdmin, AuthMixin):
+    can_export = True
+
+
+class UsersTasksView(ModelView, AuthMixin):
+    can_create = False
+    can_delete = False
+    can_edit = True
+    column_searchable_list = ['user_id', 'task_id']
+    column_list = ('user_id', 'task_id', 'correct', 'used_hint')
+    can_export = True
+
+
+class UserRolesView(ModelView, AuthMixin):
+    can_create = False
+    can_delete = True
+    can_edit = True
+    column_searchable_list = ['id', 'user_id', 'role_id']
+    column_list = ('id', 'user_id', 'role_id')
+    column_filters = ['role_id']
+    # column_editable_list = ['role_id']
+    can_export = True
+
+
+admin = Admin(name="Admin Panel", template_mode="bootstrap4")

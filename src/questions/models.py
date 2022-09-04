@@ -30,3 +30,6 @@ class UsersTasks(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     user_id = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'))
     task_id = db.Column(db.Integer(), db.ForeignKey('tasks.id', ondelete='CASCADE'))
+    correct = db.Column(db.String(), unique=False)
+    used_hint = db.Column(db.String(), unique=False)
+    skipped = db.Column(db.String(), unique=False)

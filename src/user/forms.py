@@ -53,6 +53,14 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
+    first_name = StringField()
+    last_name = StringField()
+    region = StringField()
+    school = StringField()
+    school_class = StringField()
     email = EmailField('Email', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
+    pass_confirm = StringField()
+    rules = StringField()
     login = SubmitField('Login')
+    submit = SubmitField()

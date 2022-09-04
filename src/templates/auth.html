@@ -11,64 +11,67 @@ authorization
 {% block script_link %}
 <script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../static/css/style.css" />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
 {% endblock %}
 
 {% block conent %}
-  <body class="about-body">
-    <header>
-      <nav>
-        <a href="{{ url_for('main.main') }}">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('auth.login') }}" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main class="authorization" >
-      <section class="auth-container" id="auth-container">
-        <h1>მათემატიკის რესურსი</h1>
-
-        {% include "signin.html" %}
-        {% include "forget_pass.html" %}
-        {% include "register.html" %}
-
-      </section>
-      <section class="successful-registration" id="successful-registration">
-        <h3>თქვენ წარმატებით</h3>
-        <h2>დარეგისტრირდით</h2>
-        <p>დასადასტურებელი შეტყობინება გამოგზავნილია თქვენს ი-მეილზე</p>
-      </section>
-      <section class="successful-recovery-tab" id="successful-recovery-tab">
-        <h3>პაროლის აღდგენა</h3>
-        <p>პაროლის აღდგენის ინსტრუქცია გამოგზავნილია თქვენს ი-მეილზე</p>
-        <button type="button" id="send-to-recovery-again">გაგზავნა განმეორებით</button>
-      </section>
-      <section class="successful-pass-change" id="successful-pass-change">
-        <h2>პაროლი წარმატებით შეიცვალა</h2>
-      </section>
-      <section class="my-profile" id="my-profile">
-        <h3>ჩემი პროფილი</h3>
-          <div class="options-wrapper">
-            <p tabindex="0" class="profile-option" id="profile-option-one">ინფორმაციის რედაქტირება</p>
-            <p tabindex="0" class="profile-option" id="profile-option-two">პაროლის ცვლილება</p>
-          </div>
-          <hr />
-
-        {% include "includes/profile.html" %}
-
-      </section>
-    </main>
+     <form method="post" enctype="multipart/form-data">
+            <div class="container_auth">
+                <h3>to continue</h3>
+                <p>Follow the instructions</p>
+                <hr>
+                    {{ form.hidden_tag() }}
+                    {{ form.email.label }}
+                    {{ form.email }}
+                    <br>
+                    {{ form.password.label }}
+                    {{ form.password }}
+                    <br>
+{#                    {{ form.fileupload(accept='.png') }}#}
+                    {{ form.submit }}
+            </div>
+        </form>
+    <div class="container signin">
+        <p>Don't have an account? <a href="{{ url_for('auth.register_user') }}">Sign up</a>.</p>
+    </div>
+{#  <body class="about-body">#}
+{#    <main class="authorization" >#}
+{#      <section class="auth-container" id="auth-container">#}
+{#        <h1>მათემატიკის რესურსი</h1>#}
+{#          #}
+{##}
+{#        {% include "signin.html" %}#}
+{#        {% include "forget_pass.html" %}#}
+{#        {% include "register.html" %}#}
+{##}
+{#      </section>#}
+{#      <section class="successful-registration" id="successful-registration">#}
+{#        <h3>თქვენ წარმატებით</h3>#}
+{#        <h2>დარეგისტრირდით</h2>#}
+{#        <p>დასადასტურებელი შეტყობინება გამოგზავნილია თქვენს ი-მეილზე</p>#}
+{#      </section>#}
+{#      <section class="successful-recovery-tab" id="successful-recovery-tab">#}
+{#        <h3>პაროლის აღდგენა</h3>#}
+{#        <p>პაროლის აღდგენის ინსტრუქცია გამოგზავნილია თქვენს ი-მეილზე</p>#}
+{#        <button type="button" id="send-to-recovery-again">გაგზავნა განმეორებით</button>#}
+{#      </section>#}
+{#      <section class="successful-pass-change" id="successful-pass-change">#}
+{#        <h2>პაროლი წარმატებით შეიცვალა</h2>#}
+{#      </section>#}
+{#      <section class="my-profile" id="my-profile">#}
+{#        <h3>ჩემი პროფილი</h3>#}
+{#          <div class="options-wrapper">#}
+{#            <p tabindex="0" class="profile-option" id="profile-option-one">ინფორმაციის რედაქტირება</p>#}
+{#            <p tabindex="0" class="profile-option" id="profile-option-two">პაროლის ცვლილება</p>#}
+{#          </div>#}
+{#          <hr />#}
+{##}
+{#        {% include "profile.html" %}#}
+{##}
+{#      </section>#}
+{#    </main>#}
     
     <script defer src="../static/js/main.js"></script>
 
