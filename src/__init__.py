@@ -5,10 +5,10 @@ from flask_user import UserManager
 from src.config import TestConfig
 from src.extensions import db, login_manager, migrate
 
-from src.user.models import User, Role, UserRoles, Teacher
+from src.user.models import User, Role, UserRoles, Teacher, Contacts, About, Team, Documents
 from src.questions.models import Answer, UsersTasks
 
-from src.admin import admin, UserView, RoleView, MenuLink, StaticView, TeacherModelView, UsersTasksView, UserRolesView
+from src.admin import admin, UserView, RoleView, MenuLink, StaticView, TeacherModelView, UsersTasksView, UserRolesView, ContactsView, AboutView, TeamView, DocumentsView
 
 
 def create_app():
@@ -30,6 +30,10 @@ def register_extension(app):
     admin.add_view(UsersTasksView(UsersTasks, db.session, category='User Management'))
     admin.add_view(UserRolesView(UserRoles, db.session, category='User Management'))
     admin.add_view(TeacherModelView(Teacher, db.session, category='User Management'))
+    admin.add_view(ContactsView(Contacts, db.session, category='General Management'))
+    admin.add_view(AboutView(About, db.session, category='General Management'))
+    admin.add_view(TeamView(Team, db.session, category='General Management'))
+    admin.add_view(DocumentsView(Documents, db.session, category='General Management'))
     admin.add_link(MenuLink(name='Dashboard', url='/'))
     admin.add_view(StaticView(TestConfig.basedir + '/static', '/static', name='Static Files'))
 

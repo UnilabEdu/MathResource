@@ -1,33 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Project</title>
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
-  <body class="about-body">
+{% extends 'base.html' %}
+{% block link %}
+
+
+{% endblock %}
+    {% block title %}
+          About Project
+      {% endblock %}
+
+{% block script_link %}
+<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/css/style.css" />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
+{% endblock %}
+
     <header>
       <nav>
-        <a href="{{ url_for('main.main') }}">
-          <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('auth.login') }}" id="auth-link">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
+          <a href="{{ url_for('main.main') }}"></a>
       </nav>
     </header>
+
+{% block content %}
+
+  <body class="about-body">
     <section>
       <div class="about-contaioner">
         <div class="about-container-top-wrapper">
@@ -35,10 +30,9 @@
             <div class="about-container-top-about">
               <h2>პროექტის შესახებ</h2>
               <p>
-                საიტზე არის განთავსებული მათემატიკური ამოცანები, რომლებთა
-                ამოხსნაც python-ის პროგრამულ ენაზე დაწერილი კოდით გახდება
-                შესაძლებელი. კოდის დაწერას შეძლებთ საიტზე და აქვე მოხდება მისი
-                ავტომატური შემოწმება.
+                    {% for a in about %}
+                        {{ a.info }}
+                    {% endfor %}
               </p>
             </div>
             <div class="about-container-top-goal">
@@ -51,66 +45,12 @@
           <div class="about-container-bottom">
             <h2>პროექტზე მომუშავე გუნდი</h2>
             <div class="about-container-bottom-team-info">
-              <div class="team-info">
-                <h4>სანდრო ასათიანი</h4>
-                <p>ოუნერი</p>
-              </div>
-              <div class="team-info">
-                <h4>თემო ჩიჩუა</h4>
-                <p>ოუნერი Back-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>ანანო ასპანიძე</h4>
-                <p>პროექტის მენეჯერი (ჰედი)</p>
-              </div>
-              <div class="team-info">
-                <h4>ნენე არაბული</h4>
-                <p>დიზაინი (ჰედი)</p>
-              </div>
-              <div class="team-info">
-                <h4>მარიშა არაბული</h4>
-                <p>დიზაინი (ჰედი)</p>
-              </div>
-              <div class="team-info">
-                <h4>ეკატერინა ხარბედია</h4>
-                <p>დიზაინი (ჰედი)</p>
-              </div>
-              <div class="team-info">
-                <h4>ნოკა ყიფიანი</h4>
-                <p>Front-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>დავით ცალანი</h4>
-                <p>Front-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>დავით ჭინჭარაშვილი</h4>
-                <p>Back-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>გიორგი მხეიძე</h4>
-                <p>პროექტის მენეჯერი</p>
-              </div>
-              <div class="team-info">
-                <h4>ოთო ბენიაიძე</h4>
-                <p>დიზაინი</p>
-              </div>
-              <div class="team-info">
-                <h4>ლუკა ბლიაძე</h4>
-                <p>Front-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>მერი გოგიჩაშვილი</h4>
-                <p>Front-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>გიორგი ბიწაძე</h4>
-                <p>Front-End დეველოპერი</p>
-              </div>
-              <div class="team-info">
-                <h4>ნიკა ქვრივიშვილი</h4>
-                <p>Back-End დეველოპერი</p>
-              </div>
+                {% for p in team %}
+                      <div class="team-info">
+                            <h4>{{ p.person }}</h4>
+                            <p>{{ p.position }}</p>
+                      </div>
+                {% endfor %}
             </div>
           </div>
         </div>
@@ -119,4 +59,5 @@
 
     <script defer src="../static/js/main.js"></script>
   </body>
-</html>
+
+{% endblock %}
