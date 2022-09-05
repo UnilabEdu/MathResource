@@ -1,4 +1,23 @@
-<form method="POST" action="{{url_for('users.register_user')}}" class="register-form" id="register-form">
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block script_link %}
+<link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+{% endblock %}
+
+{% block conent %}
+
+<form method="POST" action="{{url_for('auth.register_user')}}" class="register-form" id="register-form">
     {{ form.hidden_tag() }}
     
     <h3>ახალი ანგარიშის შექმნა</h3>
@@ -11,7 +30,8 @@
 
     <div>
       <div class="input-icons">
-        {{ form.first_name(class="input", id="first_name") }}
+          {{ form.first_name.label }}
+          {{ form.first_name }}
         <div>
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
@@ -131,3 +151,4 @@
 
     <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">
   </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% macro nav_bar_regular(endpoint, name) %}
+    <a href="{{ url_for(endpoint) }}">{{ name }}</a>
+{% endmacro %}
+
+{% macro button_filter_buttons(name) %}
+    <button type="button" class="filter-buttons">{{ name }}</button>
+{% endmacro %}
+
+{% macro item_circle(name) %}
+    <div class="item">
+        <div class="circle"></div>
+        <p>{{ name }}</p>
+    </div>
+{% endmacro %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% from "macro.html" import button_filter_buttons, item_circle %}
 {% block link %}
 <link rel="stylesheet" href="../static/css/style.css" />
 {% endblock %}
@@ -17,32 +18,14 @@ Math resource
 
 {% block conent %}
 
-  <body>
-    <header>
-      <nav>
-        <div class="logo-wrapper">
-          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
-        </div>
-        <ul class="nav-links">
-          <li>
-            <a href="{{ url_for('users.register_user') }}">ავტორიზაცია</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.about') }}">პროექტის შესახებ</a>
-          </li>
-          <li>
-            <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+
     <h1>ამოხსენი მათემატიკური ამოცანები პითონის პროგრამული ენით</h1>
 
     <section class="container">
       <div class="sorting">
-        <button type="button" class="filter-buttons">თემები</button>
-        <button type="button" class="filter-buttons">ავტორი</button>
-        <button type="button" class="filter-buttons">კლასი</button>
+          {{ button_filter_buttons('თემები') }}
+          {{ button_filter_buttons('ავტორი') }}
+          {{ button_filter_buttons('კლასი') }}
       </div>
       <div class="filter-container">
         <!-- Slider main container -->
@@ -52,54 +35,18 @@ Math resource
             <!-- Slides -->
             <div class="swiper-slide">
               <div class="content-container">
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
-                <div class="item">
-                  <div class="circle"></div>
-                  <p>ფიგურები</p>
-                </div>
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
+                  {{ item_circle('ფიგურები') }}
               </div>
             </div>
             <div class="swiper-slide">Slide 2</div>

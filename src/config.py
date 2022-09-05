@@ -1,4 +1,5 @@
 import os
+from .extensions import login_manager
 
 
 class TestConfig(object):
@@ -7,6 +8,7 @@ class TestConfig(object):
     # DB settings
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    login_manager.login_view = "login"
 
     # Flask-User settings
     USER_APP_NAME = "Flask-User Basic App"  # Shown in and email templates and page footers

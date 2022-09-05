@@ -230,6 +230,8 @@ h1 {
     text-transform: uppercase;
 }
 
+
+
 .container {
     width: 85%;
     margin: 0 auto;
@@ -1077,4 +1079,56 @@ h1 {
     font-family: 'DejaVu Sans';
     font-size: 18px;
     margin: 1rem 0 0 0;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 1px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-family: "PF Tempesta Five", sans-serif;
+}
+.loginbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-family: "PF Tempesta Five", sans-serif;
+}
+
+.loginbtn:hover{
+  opacity:1;
+  font-family: "PF Tempesta Five", sans-serif;
+}
+.registerbtn:hover {
+  opacity:1;
+  font-family: "PF Tempesta Five", sans-serif;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #dddddd;
 }
