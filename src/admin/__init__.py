@@ -84,4 +84,33 @@ class UserRolesView(ModelView, AuthMixin):
     can_export = True
 
 
+class ContactsView(ModelView, AuthMixin):
+    can_create = True
+    can_delete = True
+    can_edit = True
+    column_list = ('contact_source', 'info')
+
+
+class AboutView(ModelView, AuthMixin):
+    can_create = True
+    can_delete = True
+    can_edit = True
+    column_list = ('info',)
+
+
+class TeamView(ModelView, AuthMixin):
+    can_create = True
+    can_edit = True
+    column_filters = ['position']
+    column_list = ('person', 'position', 'description', 'linkedin', 'github', 'dribble', 'behance')
+
+
+class DocumentsView(ModelView, AuthMixin):
+    can_edit = True
+    can_delete = True
+    can_create = True
+    column_list = ('doc_type', 'doc_content')
+    column_filters = ['doc_type']
+
+
 admin = Admin(name="Admin Panel", template_mode="bootstrap4")
