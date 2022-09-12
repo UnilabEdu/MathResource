@@ -1,4 +1,4 @@
-from src.user.models import User, Role, UserRoles, Teacher
+from src.user.models import User, Role, UserRoles, Teacher, Team
 from src.extensions import db
 from werkzeug.security import generate_password_hash
 from src import create_app
@@ -6,6 +6,7 @@ import datetime
 
 application = create_app()
 application.app_context().push()
+
 
 db.drop_all()
 db.create_all()
@@ -37,3 +38,62 @@ def my_function():
 
 
 my_function()
+
+team_info = [
+        {
+            "person": "სანდრო ასათიანი",
+            "position": "ოუნერი",
+        }, {
+            "person": "თემო ჩიჩუა",
+            "position": "ოუნერი Back-End დეველოპერი",
+        }, {
+            "person": "ანანო ასპანიძე",
+            "position": "პროექტის მენეჯერი (ჰედი)",
+        }, {
+            "person": "ნენე არაბული",
+            "position": "დიზაინი (ჰედი)",
+        }, {
+            "person": "მარიშა არაბული",
+            "position": "დიზაინი (ჰედი)",
+        }, {
+            "person": "ეკატერინა ხარბედია",
+            "position": "დიზაინი (ჰედი)",
+        }, {
+            "person": "ნოკა ყიფიანი",
+            "position": "Front-End დეველოპერი",
+        }, {
+            "person": "დავით ცალანი",
+            "position": "Front-End დეველოპერი",
+        }, {
+            "person": "დავით ჭინჭარაშვილი",
+            "position": "Back-End დეველოპერი",
+        }, {
+            "person": "გიორგი მხეიძე",
+            "position": "პროექტის მენეჯერი",
+        }, {
+            "person": "ოთო ბენიაიძე",
+            "position": "დიზაინი",
+        }, {
+            "person": "ლუკა ბლიაძე",
+            "position": "Front-End დეველოპერი",
+        }, {
+            "person": "მერი გოგიჩაშვილი",
+            "position": "Front-End დეველოპერი",
+        }, {
+            "person": "გიორგი ბიწაძე",
+            "position": "Front-End დეველოპერი",
+        }, {
+            "person": "ნიკა ქვრივიშვილი",
+            "position": "Back-End დეველოპერი",
+        },
+    ]
+
+
+def populate_team():
+    for el in team_info:
+        team_member = Team(**el)
+        team_member.create(commit=True)
+    return
+
+
+populate_team()
