@@ -4,11 +4,12 @@ from flask import Flask, render_template_string
 from flask_user import UserManager
 from src.config import TestConfig
 from src.extensions import db, login_manager, migrate
-
 from src.user.models import User, Role, UserRoles, Teacher, Contacts, About, Team, Documents
 from src.questions.models import Answer, UsersTasks
 
-from src.admin import admin, UserView, RoleView, MenuLink, StaticView, TeacherModelView, UsersTasksView, UserRolesView, ContactsView, AboutView, TeamView, DocumentsView
+from src.admin import admin, UserView, RoleView, MenuLink, StaticView, TeacherModelView, UsersTasksView, UserRolesView, \
+    ContactsView, AboutView, TeamView, DocumentsView, TestView
+
 
 
 def create_app():
@@ -25,6 +26,7 @@ def register_extension(app):
     admin.init_app(app)
     usermanager = UserManager(app, db, User)
     migrate.init_app(app, db)
+    admin.add_view(TestView(name="test", endpoint="/test"))
     admin.add_view(UserView(User, db.session, category='User Management'))
     admin.add_view(RoleView(Role, db.session, category='User Management'))
     admin.add_view(UsersTasksView(UsersTasks, db.session, category='User Management'))
@@ -45,11 +47,11 @@ def register_extension(app):
     def load_user(user_id):
         return User.query.get(int(user_id))
 
+
 def register_blueprints(app):
     from src.user.views import auth_blueprint
     from src.front_end.views import main_blueprint
+    from src.admin.views import admins_blueprint
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)
-
-
-
+    app.register_blueprint(admins_blueprint)

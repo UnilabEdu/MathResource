@@ -1,9 +1,13 @@
 from flask import redirect, url_for, request
-from flask_admin import Admin
+from flask_admin import Admin, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.menu import MenuLink
 from flask_user import current_user
+from src.user.models import User
+from src.questions.models import UsersTasks
+from markupsafe import Markup
+from flask_admin.helpers import get_form_data
 
 from src.extensions import db
 from src.user.models import User
@@ -42,13 +46,35 @@ class TeacherModelView(ModelView, AuthMixin):
 class UserView(ModelView, AuthMixin):
     can_create = True
     can_delete = False
-    can_edit = True
+    column_list = ("first_name", "last_name", "region", "school", "school_class", "email", "email_confirmed_at", 'Tasks')
     column_exclude_list = ['password', ]
     column_searchable_list = ['first_name', 'last_name', 'email']
-    column_filters = ['roles']
-    column_editable_list = ['roles']
     can_export = True
 
+    def use_button(view, context, model, name):
+        checkout_url = url_for('.checkout_view')
+
+        _html = '''
+                    <form action="{checkout_url}" method="POST">
+                        <input id="user_id" name="user_id"  type="hidden" value="{user_id}">
+                        <button type='submit'>Checkout</button>
+                    </form
+                '''.format(checkout_url=checkout_url, user_id=model.id)
+
+        return Markup(_html)
+
+    column_formatters = {
+        'Tasks': use_button
+    }
+
+    @expose('/checkout', methods=['POST'])
+    def checkout_view(self):
+        form = get_form_data()
+        user_id = form['user_id']
+        user_tasks = UsersTasks.query.filter_by(user_id=user_id).all()
+
+
+        return self.render('admin/result.html', user_tasks = user_tasks)
 
 class RoleView(ModelView, AuthMixin):
     can_create = False
@@ -113,4 +139,11 @@ class DocumentsView(ModelView, AuthMixin):
     column_filters = ['doc_type']
 
 
-admin = Admin(name="Admin Panel", template_mode="bootstrap4")
+class TestView(BaseView):
+    @expose('/')
+    def test(self):
+        users = User.query.all()
+        return self.render('admin/test_html.html', users=users)
+
+
+admin = Admin(name="Admin Panel", template_mode='bootstrap4')

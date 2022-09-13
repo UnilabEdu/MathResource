@@ -11,9 +11,6 @@ auth_blueprint = Blueprint('auth',
                            template_folder='templates')
 
 
-
-
-
 @auth_blueprint.route('/registration', methods=['GET', 'POST'])
 def register_user():
     form = RegistrationForm()
@@ -46,7 +43,7 @@ def login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user)
-                flash(f"{user.email} logged in succesfully")
+                flash(f"{user.email} logged in successfully")
                 return redirect(url_for("main.main"))
             else:
                 flash('login failed', 'danger')
@@ -59,5 +56,5 @@ def login():
 @login_required
 def log_out():
     logout_user()
-    flash("Succesfully logged out")
+    flash("Successfully logged out")
     return redirect(url_for('main.main'))

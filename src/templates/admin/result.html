@@ -1,0 +1,33 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task</th>
+      <th scope="col">Correct</th>
+      <th scope="col">Used Hint</th>
+      <th scope="col">Skipped</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for item in user_tasks %}
+    <tr>
+
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.task_id }}</td>
+      <td>{{ item.correct }}</td>
+      <td>{{ item.used_hint }}</td>
+      <td>{{ item.skipped }}</td>
+    {% endfor %}
+
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+{% endblock %}

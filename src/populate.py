@@ -1,4 +1,5 @@
 from src.user.models import User, Role, UserRoles, Teacher, Team
+from src.questions.models import UsersTasks,Task
 from src.extensions import db
 from werkzeug.security import generate_password_hash
 from src import create_app
@@ -33,8 +34,12 @@ def my_function():
         db.session.add(teacher1)
         user_role1 = UserRoles(user_id=user1.id, role_id=role1.id)
         user_role2 = UserRoles(user_id=user2.id, role_id=role2.id)
+        task_1 = UsersTasks(user_id=user2.id,task_id='1',correct='False', used_hint='True', skipped='False')
         db.session.add_all([user_role1, user_role2])
         db.session.commit()
+        db.session.add(task_1)
+        db.session.commit()
+
 
 
 my_function()
