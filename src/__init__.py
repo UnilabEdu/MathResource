@@ -3,13 +3,12 @@ import datetime
 from flask import Flask, render_template_string
 from flask_user import UserManager
 from src.config import TestConfig
-from src.extensions import db, login_manager, migrate
-from src.user.models import User, Role, UserRoles, Teacher, Contacts, About, Team, Documents
+from src.extensions import db, login_manager, migrate, mail
+from src.user.models import User, Roles, Contacts, About, Team, Documents
 from src.questions.models import Answer, UsersTasks
 
-from src.admin import admin, UserView, RoleView, MenuLink, StaticView, TeacherModelView, UsersTasksView, UserRolesView, \
-    ContactsView, AboutView, TeamView, DocumentsView, TestView
-
+from src.admin import admin, UserView, RoleView, MenuLink, StaticView, UsersTasksView, UserRolesView, \
+    ContactsView, AboutView, TeamView, DocumentsView
 
 
 def create_app():
@@ -26,12 +25,10 @@ def register_extension(app):
     admin.init_app(app)
     usermanager = UserManager(app, db, User)
     migrate.init_app(app, db)
-    admin.add_view(TestView(name="test", endpoint="/test"))
+    mail.init_app(app)
     admin.add_view(UserView(User, db.session, category='User Management'))
-    admin.add_view(RoleView(Role, db.session, category='User Management'))
+    admin.add_view(RoleView(Roles, db.session, category='User Management'))
     admin.add_view(UsersTasksView(UsersTasks, db.session, category='User Management'))
-    admin.add_view(UserRolesView(UserRoles, db.session, category='User Management'))
-    admin.add_view(TeacherModelView(Teacher, db.session, category='User Management'))
     admin.add_view(ContactsView(Contacts, db.session, category='General Management'))
     admin.add_view(AboutView(About, db.session, category='General Management'))
     admin.add_view(TeamView(Team, db.session, category='General Management'))
@@ -55,3 +52,5 @@ def register_blueprints(app):
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)
     app.register_blueprint(admins_blueprint)
+
+

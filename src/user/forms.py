@@ -1,6 +1,6 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, EmailField, SelectField, BooleanField
-from wtforms.validators import DataRequired, Email, EqualTo
+from wtforms.validators import DataRequired, Email, EqualTo, Length
 from wtforms import ValidationError
 from src.user.models import User
 
@@ -24,26 +24,31 @@ class RegistrationForm(FlaskForm):
                                   ])
     school = StringField('School: ', [DataRequired()])
     school_class = SelectField(u'school_class',
-                         choices=[('I', 'I'),
-                                  ('II', 'II'),
-                                  ('III', 'III'),
-                                  ('IV', 'IV'),
-                                  ('V', 'V'),
-                                  ('VI', 'VI'),
-                                  ('VII', 'VII'),
-                                  ('VIII', 'VIII'),
-                                  ('IX', 'IX'),
-                                  ('X', 'X'),
-                                  ('XI', 'XI'),
-                                  ('XII', 'XII'),])
-    email = EmailField('Email', [DataRequired()])
-    password = PasswordField('Password',
-                             validators=[DataRequired(), EqualTo('pass_confirm', message='Passwords Must Match!')])
-    pass_confirm = PasswordField(label="Confirm Password",
-                                    validators=[EqualTo("password", message="passwords don't match")],
-                                    render_kw={"placeholder": "Confirm Password"})
+                               choices=[('I', 'I'),
+                                        ('II', 'II'),
+                                        ('III', 'III'),
+                                        ('IV', 'IV'),
+                                        ('V', 'V'),
+                                        ('VI', 'VI'),
+                                        ('VII', 'VII'),
+                                        ('VIII', 'VIII'),
+                                        ('IX', 'IX'),
+                                        ('X', 'X'),
+                                        ('XI', 'XI'),
+                                        ('XII', 'XII'), ])
+    email = EmailField('Email', validators=[DataRequired()])
 
-    rules = BooleanField(' ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს', validators=[DataRequired()])
+    password = PasswordField('Password',
+                             validators=[DataRequired(), Length(min=8, max=64),
+                                         EqualTo('pass_confirm', message='Passwords Must Match!')])
+    pass_confirm = PasswordField(label="Confirm Password",
+                                 validators=[EqualTo("password", message="passwords don't match")],
+                                 render_kw={"placeholder": "Confirm Password"})
+
+    rules = BooleanField(' ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს',
+                         validators=[DataRequired()])
+
+    recaptcha = RecaptchaField()
 
     submit = SubmitField('რეგისტრაცია')
 
@@ -64,3 +69,19 @@ class LoginForm(FlaskForm):
     rules = StringField()
     login = SubmitField('Login')
     submit = SubmitField()
+
+
+class ForgotForm(FlaskForm):
+    email = EmailField('Email', [DataRequired()])
+    submit = SubmitField()
+
+
+class UpdatePass(FlaskForm):
+    password = PasswordField('Password', [DataRequired(), Length(min=8, max=64)],render_kw={"placeholder": "პაროლი"})
+    pass_confirm = PasswordField(label="Confirm Password",
+                                 validators=[EqualTo("password", message="passwords don't match")],
+                                 render_kw={"placeholder": "გაიმეორე პაროლი"})
+    submit = SubmitField()
+
+
+

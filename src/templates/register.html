@@ -145,7 +145,11 @@ Register Page
 
     <div class="agree-policies-wrapper">
       {{ form.rules }}
-      {{ form.rules.label }}
+        <label><a href="{{ url_for('main.terms_and_conditions') }}">ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს</a></label>
+    </div>
+
+    <div>
+        {{ form.recaptcha }}
     </div>
 
     <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">

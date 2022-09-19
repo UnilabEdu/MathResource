@@ -38,6 +38,7 @@ class LogOutLink(MenuLink):
 class AdminView(AdminIndexView):
     def is_accessible(self):
         if current_user.is_authenticated:
+            print(current_user)
             return current_user.has_roles('Admin')
         else:
             return False
@@ -64,11 +65,11 @@ class TeacherModelView(AuthMixin):
 class UserView(AuthMixin):
     can_create = True
     can_delete = False
-    column_list = ("first_name", "last_name", "region", "school", "school_class", "email", "email_confirmed_at", 'Tasks')
+    column_list = ("first_name", "last_name", "region", "school", "school_class", "email", 'email_confirmed_at', 'Tasks')
     column_exclude_list = ['password', ]
     column_searchable_list = ['first_name', 'last_name', 'email']
     can_export = True
-    form_overrides = dict(email_confirmed_at=DateTimeField)
+    # form_overrides = dict(email_confirmed_at=DateTimeField)
 
     def use_button(view, context, model, name):
         checkout_url = url_for('.checkout_view')
