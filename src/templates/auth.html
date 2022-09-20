@@ -28,9 +28,9 @@ authorization
                     <br>
                     {{ form.password.label }}
                     {{ form.password }}
-                    <br>
-{#                    {{ form.fileupload(accept='.png') }}#}
-                    {{ form.submit }}
+                    <span id = "passwordHelpBlock" class="help-block"><a href="{{ url_for('.reset') }}">დაგავიწყდა პაროლი?</a></span>
+                    <br><br>
+                {{ form.submit }}
             </div>
         </form>
     <div class="container signin">
