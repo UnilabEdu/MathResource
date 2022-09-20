@@ -33,6 +33,8 @@
         </div>
         <ul class="nav-links">
             {% if current_user.is_authenticated %}
+                  {{ nav_bar_regular('main.about','პროექტის შესახებ') }}
+                  {{ nav_bar_regular('main.contacts','კონტაქტი') }}
                   {{ nav_bar_regular("auth.log_out","გამოსვლა") }}
             {% else %}
                   {{ nav_bar_regular("auth.register_user","რეგისტრაცია") }}
@@ -48,6 +50,16 @@
 
   {% endblock %}
 
+  <footer>
+      <ul class="footer-links">
+        <li>
+          <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
+        </li>
+        <li>
+          <a href="{{ url_for('main.terms_and_conditions')}}">კონფიდენციალურობის პოლიტიკა და გამოყენების პირობები</a>
+        </li>
+      </ul>
+  </footer>
 </body>
 </html>
 

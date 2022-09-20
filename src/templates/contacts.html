@@ -49,13 +49,26 @@ Contacts
             ან ფეისფუქის გვერდზე
           </p>
         </div>
-        <div class="contacts-email">
-          <span>✉️</span>
-          <a href="#">unilabinfo@iliauni.edu.ge</a>
-        </div>
-        <div class="contacts-social-media">
-          <i class="fa-brands fa-facebook"></i>
-        </div>
+
+
+          {% for c in contact_info %}
+              {% if c.contact_source == 'email' %}
+                <div class="contacts-email">
+              <span>✉️</span>
+              <a href="#">{{ c.info }}</a>
+              </div>
+              {% endif %}
+              {% if c.contact_source == 'facebook' %}
+                  <div class="contacts-social-media">
+                  <i class="fa-brands fa-facebook"></i>
+                      <a href="#">{{ c.info }}</a>
+                  </div>
+              {% endif %}
+          {% endfor %}
+
+
+
+
       </div>
     </section>
 
