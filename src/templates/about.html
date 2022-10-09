@@ -1,3 +1,67 @@
+{#{% extends 'base.html' %}#}
+{#{% block link %}#}
+{##}
+{##}
+{#{% endblock %}#}
+{#    {% block title %}#}
+{#          About Project#}
+{#      {% endblock %}#}
+{##}
+{#{% block script_link %}#}
+{#<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>#}
+{#<link rel="stylesheet" href="../static/css/style.css" />#}
+{#<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>#}
+{#<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">#}
+{#{% endblock %}#}
+{##}
+{#    <header>#}
+{#      <nav>#}
+{#          <a href="{{ url_for('main.main') }}"></a>#}
+{#      </nav>#}
+{#    </header>#}
+{##}
+{#{% block content %}#}
+{##}
+{#  <body class="about-body">#}
+{#    <section>#}
+{#      <div class="about-contaioner">#}
+{#        <div class="about-container-top-wrapper">#}
+{#          <div class="about-container-top">#}
+{#            <div class="about-container-top-about">#}
+{#              <h2>პროექტის შესახებ</h2>#}
+{#              <p>#}
+{#                    {% for a in about %}#}
+{#                        {{ a.info }}#}
+{#                    {% endfor %}#}
+{#              </p>#}
+{#            </div>#}
+{#            <div class="about-container-top-goal">#}
+{#              <h2>მიზანი</h2>#}
+{#              <p>აღმოვაჩინოთ ნიჭიერი პოტენციური პროგრამისტები.</p>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="about-container-bottom-wrapper">#}
+{#          <div class="about-container-bottom">#}
+{#            <h2>პროექტზე მომუშავე გუნდი</h2>#}
+{#            <div class="about-container-bottom-team-info">#}
+{#                {% for p in team %}#}
+{#                      <div class="team-info">#}
+{#                            <h4>{{ p.person }}</h4>#}
+{#                            <p>{{ p.position }}</p>#}
+{#                      </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}
+{##}
+{#    <script defer src="../static/js/main.js"></script>#}
+{#  </body>#}
+{##}
+{#{% endblock %}#}
+
 {% extends 'base.html' %}
 {% block link %}
 
@@ -22,17 +86,17 @@
 
 {% block content %}
 
-  <body class="about-body">
-    <section>
+<section class="aboutPage">
       <div class="about-contaioner">
         <div class="about-container-top-wrapper">
           <div class="about-container-top">
             <div class="about-container-top-about">
               <h2>პროექტის შესახებ</h2>
               <p>
-                    {% for a in about %}
-                        {{ a.info }}
-                    {% endfor %}
+                საიტზე არის განთავსებული მათემატიკური ამოცანები, რომლებთა
+                ამოხსნაც python-ის პროგრამულ ენაზე დაწერილი კოდით გახდება
+                შესაძლებელი. კოდის დაწერას შეძლებთ საიტზე და აქვე მოხდება მისი
+                ავტომატური შემოწმება.
               </p>
             </div>
             <div class="about-container-top-goal">
@@ -45,19 +109,133 @@
           <div class="about-container-bottom">
             <h2>პროექტზე მომუშავე გუნდი</h2>
             <div class="about-container-bottom-team-info">
-                {% for p in team %}
-                      <div class="team-info">
-                            <h4>{{ p.person }}</h4>
-                            <p>{{ p.position }}</p>
-                      </div>
-                {% endfor %}
+              <div class="team-info">
+                <h4>სანდრო ასათიანი</h4>
+                <p>ოუნერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>თემო ჩიჩუა</h4>
+                <p>ოუნერი Back-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ანანო ასპანიძე</h4>
+                <p>პროექტის მენეჯერი (ჰედი)</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ნენე არაბული</h4>
+                <p>დიზაინი (ჰედი)</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>მარიშა არაბული</h4>
+                <p>დიზაინი (ჰედი)</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ეკატერინა ხარბედია</h4>
+                <p>დიზაინი (ჰედი)</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ნოკა ყიფიანი</h4>
+                <p>Front-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>დავით ცალანი</h4>
+                <p>Front-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>დავით ჭინჭარაშვილი</h4>
+                <p>Back-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>გიორგი მხეიძე</h4>
+                <p>პროექტის მენეჯერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ოთო ბენიაიძე</h4>
+                <p>დიზაინი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ლუკა ბლიაძე</h4>
+                <p>Front-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>მერი გოგიჩაშვილი</h4>
+                <p>Front-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>გიორგი ბიწაძე</h4>
+                <p>Front-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>ნიკა ქვრივიშვილი</h4>
+                <p>Back-End დეველოპერი</p>
+                <div class="linkProfile">
+                  <a href="#" class="fa fa-github" target="_blank"></a>
+                  <a href="#" class="fa fa-linkedin-square" target="_blank"></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <script defer src="../static/js/main.js"></script>
-  </body>
-
 {% endblock %}
+
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/api.js"></script>

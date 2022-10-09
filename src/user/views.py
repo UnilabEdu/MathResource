@@ -5,15 +5,14 @@ from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, login_required, logout_user
 from flask_mail import Message
 from flask_user import current_user
-from src.user.forms import RegistrationForm, LoginForm, ForgotForm, UpdatePass
+from src.user.forms import RegistrationForm, LoginForm, ForgotForm, UpdatePass, UpdateProfile
 from src.user.models import User, BaseModel
-from src.extensions import login_manager, mail
+from src.extensions import login_manager, mail, db
 from sqlalchemy.sql import func
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.config import TestConfig
 from itsdangerous import URLSafeSerializer
 from src.mail_funcs.funcs import send_mail, generate_confirmation_token, confirm_token
-
 
 auth_blueprint = Blueprint('auth',
                            __name__,
@@ -51,7 +50,7 @@ def register_user():
 def confirm(token):
     try:
         email = confirm_token(token)
-    except :
+    except:
         flash('The Confirmation link is Invalid')
 
     user = User.query.filter_by(email=email).first()
@@ -82,12 +81,68 @@ def login():
     return render_template("auth.html", form=form)
 
 
+# @auth_blueprint.route('/profile', methods=['GET', 'POST'])
+# @login_required
+# def update_profile():
+#     user = current_user
+#     form = UpdateProfile()
+#
+#     if request.method == "POST":
+#         hashed_password = generate_password_hash(form.password.data, method='sha256')
+#         user.update(first_name=form.first_name.data,
+#                     last_name=form.last_name.data,
+#                     region=form.region.data,
+#                     school=form.school.data,
+#                     school_class=form.school_class.data,
+#                     email=form.email.data,
+#                     password=hashed_password)
+#
+#         user.save()
+#         return redirect(url_for('auth.login'))
+#     return render_template('user_profile.html', user=user, form=form)
+
+@auth_blueprint.route('/profile', methods=['GET', 'POST'])
+@login_required
+def update_profile():
+    form = UpdateProfile()
+    user_id = current_user.id
+    user_to_update = User.query.get_or_404(user_id)
+    hashed_password = generate_password_hash(user_to_update.password, method='sha256')
+    if request.method == "POST":
+        user_to_update.first_name = request.form['first_name']
+        user_to_update.last_name = request.form['last_name']
+        user_to_update.region = request.form['region']
+        user_to_update.school = request.form['school']
+        user_to_update.school_class = request.form['school_class']
+        user_to_update.email = request.form['email']
+        hashed_password = request.form['password']
+
+        try:
+            db.session.commit()
+            flash('Profile Updated')
+            return render_template('user_profile.html',
+                                   form=form,
+                                   user_to_update=user_to_update)
+        except:
+            flash('Error!  Looks like there was a problem...try again!')
+            return render_template('user_profile.html',
+                                   form=form,
+                                   user_to_update=user_to_update)
+    else:
+        return render_template('user_profile.html',
+                               form=form,
+                               user_to_update=user_to_update)
+
+    return render_template('user_profile.html')
+
+
 @auth_blueprint.route('/logout', methods=['GET', 'POST'])
 @login_required
 def log_out():
     logout_user()
     flash("Successfully logged out")
     return redirect(url_for('main.main'))
+
 
 @auth_blueprint.route('/password_reset', methods=['GET', 'POST'])
 def reset():
@@ -117,7 +172,6 @@ def reset_verified(token):
     password = request.form.get('password')
 
     if password:
-
         user.password = None
         hashed_password = generate_password_hash(password, method='sha256')
         user.update(password=hashed_password)
@@ -130,5 +184,3 @@ def reset_verified(token):
 @auth_blueprint.route('/login_error', methods=['GET', 'POST'])
 def login_error():
     return render_template('login_error.html')
-
-

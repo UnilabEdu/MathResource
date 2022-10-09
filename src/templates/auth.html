@@ -1,41 +1,41 @@
-{% extends "base.html" %}
-
-{% block link %}
-
-{% endblock %}
-
-{% block title %}
-authorization
-{% endblock %}
-
-{% block script_link %}
-<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../static/css/style.css" />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
-{% endblock %}
-
-{% block content %}
-     <form method="post" enctype="multipart/form-data">
-            <div class="container_auth">
-                <h3>to continue</h3>
-                <p>Follow the instructions</p>
-                <hr>
-                    {{ form.hidden_tag() }}
-                    {{ form.email.label }}
-                    {{ form.email }}
-                    <br>
-                    {{ form.password.label }}
-                    {{ form.password }}
-                    <span id = "passwordHelpBlock" class="help-block"><a href="{{ url_for('.reset') }}">დაგავიწყდა პაროლი?</a></span>
-                    <br><br>
-                {{ form.submit }}
-            </div>
-        </form>
-    <div class="container signin">
-        <p>Don't have an account? <a href="{{ url_for('auth.register_user') }}">Sign up</a>.</p>
-    </div>
+{#{% extends "base.html" %}#}
+{##}
+{#{% block link %}#}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block title %}#}
+{#authorization#}
+{#{% endblock %}#}
+{##}
+{#{% block script_link %}#}
+{#<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>#}
+{#<link rel="stylesheet" href="../static/css/style.css" />#}
+{#<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>#}
+{#<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"#}
+{#          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#     <form method="post" enctype="multipart/form-data">#}
+{#            <div class="container_auth">#}
+{#                <h3>to continue</h3>#}
+{#                <p>Follow the instructions</p>#}
+{#                <hr>#}
+{#                    {{ form.hidden_tag() }}#}
+{#                    {{ form.email.label }}#}
+{#                    {{ form.email }}#}
+{#                    <br>#}
+{#                    {{ form.password.label }}#}
+{#                    {{ form.password }}#}
+{#                    <span id = "passwordHelpBlock" class="help-block"><a href="{{ url_for('.reset') }}">დაგავიწყდა პაროლი?</a></span>#}
+{#                    <br><br>#}
+{#                {{ form.submit }}#}
+{#            </div>#}
+{#        </form>#}
+{#    <div class="container signin">#}
+{#        <p>Don't have an account? <a href="{{ url_for('auth.register_user') }}">Sign up</a>.</p>#}
+{#    </div>#}
 {#  <body class="about-body">#}
 {#    <main class="authorization" >#}
 {#      <section class="auth-container" id="auth-container">#}
@@ -72,7 +72,150 @@ authorization
 {##}
 {#      </section>#}
 {#    </main>#}
-    
-    <script defer src="../static/js/main.js"></script>
+{#    #}
+{#    <script defer src="../static/js/main.js"></script>#}
+{##}
+{#{% endblock %}#}
+
+{% extends "base.html" %}
+
+{% block link %}
+
+{% endblock %}
+
+{% block title %}
+Authorization
+{% endblock %}
+
+{% block script_link %}
+<script
+      src="https://kit.fontawesome.com/71fe441a00.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/validators/authorizationValidation.js"></script>
+{% endblock %}
+
+{#{% block script_link %}#}
+{#<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>#}
+{#<link rel="stylesheet" href="../static/css/style.css" />#}
+{#<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>#}
+{#<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"#}
+{#          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">#}
+{#{% endblock %}#}
+
+{% block content %}
+
+    <main class="authorization">
+      <section class="auth-container" id="auth-container">
+        <h1></h1>
+        <form class="auth-form" method="post" id="auth-form">
+            {{ form.hidden_tag() }}
+          <h3>ავტორიზაცია</h3>
+          <div class="msg-wrapper">
+            <label for="email">ი-მეილი</label>
+            <div class="email-msg sb4">სცადეთ სხვა იმეილი</div>
+          </div>
+          <div class="input-icons">
+
+              {{ form.email( class="input") }}
+            <div>
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+            </div>
+          </div>
+          <div class="msg-wrapper">
+            <label for="pass">პაროლი</label>
+            <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+          </div>
+          <div class="input-icons">
+              {{ form.password(class="input eyePassword", id="id_password", autocomplete="current-password") }}
+
+
+            <i
+              class="eyeBtn far fa-eye"
+              onclick="showPassword(`id_password`,this)"
+            ></i>
+            <div>
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+            </div>
+          </div>
+          <div class="restore-wrapper">
+            <div class="divSymmetry">
+              <div class="saveInfo">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  class="remember input"
+                  name="remember"
+                  checked
+                /><label for="remember" class="remember">დამახსოვრება</label>
+              </div>
+            </div>
+            <a href="{{ url_for('.reset') }}"><button type="button" class="recovery" id="recovery-on-auth">
+              პაროლის აღდგენა
+            </button></a>
+          </div>
+            {{ form.submit(onclick="location.href='./mathProblems.html'", class="enter" ) }}
+
+          <button
+            onclick="location.href='{{ url_for('auth.register_user') }}'"
+            type="button"
+            class="registration"
+            id="registration-on-auth"
+          >
+            რეგისტრაცია
+          </button>
+        </form>
+        <form action="submit" class="email-form" id="email-form">
+          <h3>პაროლის აღდგენა</h3>
+          <div class="msg-wrapper">
+            <label for="pass">ი-მეილი</label>
+            <div class="email-msg sb4">სცადეთ სხვა მეილი</div>
+          </div>
+          <div>
+            <div class="input-icons">
+              <input
+                type="text"
+                name="email"
+                class="email input"
+                id="recovery_email"
+              />
+              <div>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="btn-wrapper-onMail">
+            <button type="button" id="cancel" class="cancel-button">
+              გაუქმება
+            </button>
+            <button type="button" id="enter-send">გაგზავნა</button>
+          </div>
+          <button
+            onclick="location.href='registration.html'"
+            type="button"
+            class="registration"
+            id="registration-on-email"
+          >
+            რეგისტრაცია
+          </button>
+        </form>
+      </section>
+      <section class="successful-recovery-tab" id="successful-recovery-tab">
+        <h3>პაროლის აღდგენა</h3>
+        <p>პაროლის აღდგენის ინსტრუქცია გამოგზავნილია თქვენს ი-მეილზე</p>
+        <button type="button" class="sendAgain" id="sendAgain">
+          <!-- send-to-recovery-again -->
+          გაგზავნა განმეორებით
+        </button>
+        <button type="button" class="homePage" id="homePageBtn">
+          მთავარი გვერდი
+        </button>
+      </section>
+    </main>
+
 
 {% endblock %}
