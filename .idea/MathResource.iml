@@ -7,6 +7,11 @@
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="swiper" level="application" />
+    <orderEntry type="library" name="71fe441a00" level="application" />
+    <orderEntry type="library" name="chartjs-plugin-doughnutlabel" level="application" />
+    <orderEntry type="library" name="chartjs-plugin-labels" level="application" />
+    <orderEntry type="library" name="Chart.js" level="application" />
+    <orderEntry type="library" name="jquery-1.7.1" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

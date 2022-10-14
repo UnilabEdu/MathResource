@@ -1,5 +1,7 @@
 {% macro nav_bar_regular(endpoint, name) %}
+    <li>
     <a href="{{ url_for(endpoint) }}">{{ name }}</a>
+  </li>
 {% endmacro %}
 
 {% macro button_filter_buttons(name) %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block link %}
+
+
+{% endblock %}
+    {% block title %}
+          Profile
+      {% endblock %}
+
+{% block script_link %}
+<script src="https://kit.fontawesome.com/71fe441a00.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/css/style.css" />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
+{% endblock %}
+
+    <header>
+      <nav>
+          <a href="{{ url_for('main.main') }}"></a>
+      </nav>
+    </header>
+{% block content %}
+    <br><br><br><br>
+    <form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    სახელი: {{ form.first_name(value=user_to_update.first_name) }}
+    გვარი: {{ form.last_name(value=user_to_update.last_name) }}
+    რეგიონი:<br> {{ form.region(value=user_to_update.region) }}<br>
+    სკოლა: {{ form.school(value=user_to_update.school) }}
+    კლასი:<br> {{ form.school_class(value=user_to_update.school_class) }}<br>
+    ელ-ფოსტა: {{ form.email(value=user_to_update.email) }}
+    პაროლის ცვლილება: {{ form.password }}
+    დაადასტურე ახალი პაროლი: {{ form.pass_confirm }}
+    {{ form.submit }}
+    </form>
+{% endblock %}

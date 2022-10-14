@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from src.user.models import Contacts, About, Team, Documents
+from flask_login import login_required
 
 main_blueprint = Blueprint('main',
                            __name__,
@@ -38,3 +39,17 @@ def example_page():
 @main_blueprint.route('/not_found')
 def not_found():
     return render_template('example.html')
+
+
+@main_blueprint.route('/intern_page')
+@login_required
+def intern_page():
+    return render_template('internpage.html')
+
+
+@main_blueprint.route('/statistics')
+def statistics_page():
+    return render_template('mathProblems.html')
+
+
+

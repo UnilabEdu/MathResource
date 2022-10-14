@@ -1,8 +1,265 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% from "macro.html" import button_filter_buttons, item_circle %}#}
+{#{% block link %}#}
+{#<link rel="stylesheet" href="../static/css/style.css" />#}
+{#{% endblock %}#}
+{##}
+{#{% block title %}#}
+{#Math resource#}
+{#{% endblock %}#}
+{##}
+{#{% block script_link %}#}
+{#<link#}
+{#        rel="stylesheet"#}
+{#        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"#}
+{#/>#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{##}
+{#    <h1>ამოხსენი მათემატიკური ამოცანები პითონის პროგრამული ენით</h1>#}
+{##}
+{#    <section class="container">#}
+{#      <div class="sorting">#}
+{#          {{ button_filter_buttons('თემები') }}#}
+{#          {{ button_filter_buttons('ავტორი') }}#}
+{#          {{ button_filter_buttons('კლასი') }}#}
+{#      </div>#}
+{#      <div class="filter-container">#}
+{#        <!-- Slider main container -->#}
+{#        <div class="swiper">#}
+{#          <!-- Additional required wrapper -->#}
+{#          <div class="swiper-wrapper">#}
+{#            <!-- Slides -->#}
+{#            <div class="swiper-slide">#}
+{#              <div class="content-container">#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#                  {{ item_circle('ფიგურები') }}#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide">Slide 2</div>#}
+{#            <div class="swiper-slide">Slide 3</div>#}
+{#            ...#}
+{#          </div>#}
+{#          <!-- If we need pagination -->#}
+{#          <div class="swiper-pagination"></div>#}
+{##}
+{#          <!-- If we need navigation buttons -->#}
+{#          <div class="swiper-button-prev"></div>#}
+{#          <div class="swiper-button-next"></div>#}
+{##}
+{#          <!-- If we need scrollbar -->#}
+{#          <div class="swiper-scrollbar"></div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="filter-container">#}
+{#        <!-- Slider main container -->#}
+{#        <div class="swiper">#}
+{#          <!-- Additional required wrapper -->#}
+{#          <div class="swiper-wrapper">#}
+{#            <!-- Slides -->#}
+{#            <div class="swiper-slide">#}
+{#              <div class="content-container">#}
+{#                <div class="tag">ნინო ადამია</div>#}
+{#                <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#                <div class="tag">ნინო ადამია</div>#}
+{#                <div class="tag">ია ია</div>#}
+{#                <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#                <div class="tag">ია ფარულავა</div>#}
+{#                <div class="tag">თამაზ გრიგოლია</div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide">Slide 2</div>#}
+{#            <div class="swiper-slide">Slide 3</div>#}
+{#            ...#}
+{#          </div>#}
+{#          <!-- If we need pagination -->#}
+{#          <div class="swiper-pagination"></div>#}
+{##}
+{#          <!-- If we need navigation buttons -->#}
+{#          <div class="swiper-button-prev"></div>#}
+{#          <div class="swiper-button-next"></div>#}
+{##}
+{#          <!-- If we need scrollbar -->#}
+{#          <div class="swiper-scrollbar"></div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="filter-container">#}
+{#        <div class="swiper">#}
+{#          <!-- Additional required wrapper -->#}
+{#          <div class="swiper-wrapper">#}
+{#            <!-- Slides -->#}
+{#            <div class="swiper-slide">#}
+{#              <div class="content-container">#}
+{#                <div class="tag">I კლასი</div>#}
+{#                <div class="tag">II კლასი</div>#}
+{#                <div class="tag">III კლასი</div>#}
+{#                <div class="tag">IV კლასი</div>#}
+{#                <div class="tag">V კლასი</div>#}
+{#                <div class="tag">VI კლასი</div>#}
+{#                <div class="tag">VII კლასი</div>#}
+{#                <div class="tag">VIII კლასი</div>#}
+{#                <div class="tag">IX კლასი</div>#}
+{#                <div class="tag">X კლასი</div>#}
+{#                <div class="tag">XI კლასი</div>#}
+{#                <div class="tag">XII კლასი</div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="swiper-slide">Slide 2</div>#}
+{#            <div class="swiper-slide">Slide 3</div>#}
+{#            ...#}
+{#          </div>#}
+{#          <!-- If we need pagination -->#}
+{#          <div class="swiper-pagination"></div>#}
+{##}
+{#          <!-- If we need navigation buttons -->#}
+{#          <div class="swiper-button-prev"></div>#}
+{#          <div class="swiper-button-next"></div>#}
+{##}
+{#          <!-- If we need scrollbar -->#}
+{#          <div class="swiper-scrollbar"></div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}
+{##}
+{#    <section class="container">#}
+{#      <div class="grid-container">#}
+{#        <!-- row -->#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <!-- row -->#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <!-- row -->#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">ნინო ადამია</div>#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">IV</div>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="card">#}
+{#          <p>სამკუთხედის ფართობი</p>#}
+{#          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />#}
+{#          <div class="tags-container">#}
+{#            <div class="tag">გიორგი თამაზაშვილი</div>#}
+{#            <div class="tag">II</div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}
+{##}
+{#    <script defer src="../static/js/main.js"></script>#}
+{#    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>#}
+{#{% endblock %}#}
+
 {% extends "base.html" %}
 
 {% from "macro.html" import button_filter_buttons, item_circle %}
 {% block link %}
-<link rel="stylesheet" href="../static/css/style.css" />
+<link rel="stylesheet" href="../static/css/global.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 {% endblock %}
 
 {% block title %}
@@ -10,246 +267,556 @@ Math resource
 {% endblock %}
 
 {% block script_link %}
-<link
-        rel="stylesheet"
-        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-/>
+
+<script
+        type="text/javascript"
+        src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 {% endblock %}
 
 {% block content %}
+<main>
+      <h1>ამოხსენი მათემატიკური ამოცანები პითონის პროგრამული ენით</h1>
 
-
-    <h1>ამოხსენი მათემატიკური ამოცანები პითონის პროგრამული ენით</h1>
-
-    <section class="container">
-      <div class="sorting">
+      <!-- Container Fillter Buttons -->
+      <section class="container">
+        <div class="sorting">
           {{ button_filter_buttons('თემები') }}
           {{ button_filter_buttons('ავტორი') }}
           {{ button_filter_buttons('კლასი') }}
-      </div>
-      <div class="filter-container">
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
+        </div>
+        <div class="filter-container">
           <div class="swiper-wrapper">
+            <!--Slider Left btn -->
+            <button class="pre-btn1">
+              <img src="../static/assets/arrow2.png" alt="" />
+            </button>
             <!-- Slides -->
             <div class="swiper-slide">
-              <div class="content-container">
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
-                  {{ item_circle('ფიგურები') }}
+              <!-- Circle Elements -->
+              <div class="content-container circle-container">
+                <div id="circle_1" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>გეომეტრიული პროგრესია</p>
+                </div>
+                <div id="circle_2" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_3" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_4" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_5" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_6" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_7" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_8" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div id="circle_9" onclick="addCircleFilter(this)" class="item">
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_10"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_11"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_12"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_13"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_14"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_15"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_16"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_17"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_18"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_19"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
+                <div
+                  id="circle_20"
+                  onclick="addCircleFilter(this)"
+                  class="item"
+                >
+                  <div class="circle"></div>
+                  <p>ფიგურები</p>
+                </div>
               </div>
             </div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
+
+            <!--Slider right btn -->
+            <button class="nxt-btn1">
+              <img src="../static/assets/arrow3.png" alt="" />
+            </button>
           </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
         </div>
-      </div>
-      <div class="filter-container">
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
+
+        <div class="filter-container">
           <div class="swiper-wrapper">
+            <!--Slider Left btn -->
+            <button class="pre-btn2">
+              <img src="../static/assets/arrow2.png" alt="" />
+            </button>
             <!-- Slides -->
             <div class="swiper-slide">
-              <div class="content-container">
-                <div class="tag">ნინო ადამია</div>
-                <div class="tag">გიორგი თამაზაშვილი</div>
-                <div class="tag">ნინო ადამია</div>
-                <div class="tag">ია ია</div>
-                <div class="tag">გიორგი თამაზაშვილი</div>
-                <div class="tag">ია ფარულავა</div>
-                <div class="tag">თამაზ გრიგოლია</div>
+              <!-- Author Names -->
+              <div class="content-container author-container">
+                <div
+                  id="author_1"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  ნინო ადამია
+                </div>
+                <div
+                  id="author_2"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  გიორგი თამაზაშვილი
+                </div>
+                <div
+                  id="author_3"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  სანდრო ასათიანი
+                </div>
+                <div
+                  id="author_4"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ია ია
+                </div>
+                <div
+                  id="author_5"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  თემო ჩიჩუა
+                </div>
+                <div
+                  id="author_6"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ანანო ასპანიძე
+                </div>
+                <div
+                  id="author_7"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ნენე არაბული
+                </div>
+                <div
+                  id="author_8"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  ნინო ადამია
+                </div>
+                <div
+                  id="author_9"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  გიორგი თამაზაშვილი
+                </div>
+                <div
+                  id="author_10"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  სანდრო ასათიანი
+                </div>
+                <div
+                  id="author_11"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ია ია
+                </div>
+                <div
+                  id="author_12"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  თემო ჩიჩუა
+                </div>
+                <div
+                  id="author_13"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ანანო ასპანიძე
+                </div>
+                <div
+                  id="author_14"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ნენე არაბული
+                </div>
+                <div
+                  id="author_15"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  ნინო ადამია
+                </div>
+                <div
+                  id="author_16"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test ase"
+                >
+                  გიორგი თამაზაშვილი
+                </div>
+                <div
+                  id="author_17"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  სანდრო ასათიანი
+                </div>
+                <div
+                  id="author_18"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ია ია
+                </div>
+                <div
+                  id="author_19"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  თემო ჩიჩუა
+                </div>
+                <div
+                  id="author_20"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ანანო ასპანიძე
+                </div>
+                <div
+                  id="author_21"
+                  onclick="addAuthorFilter(this)"
+                  class="tag test"
+                >
+                  ნენე არაბული
+                </div>
               </div>
             </div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
+            <!--Slider Right btn -->
+            <button class="nxt-btn2">
+              <img src="../static/assets/arrow3.png" alt="" />
+            </button>
           </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
         </div>
-      </div>
-      <div class="filter-container">
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <div class="content-container">
-                <div class="tag">I კლასი</div>
-                <div class="tag">II კლასი</div>
-                <div class="tag">III კლასი</div>
-                <div class="tag">IV კლასი</div>
-                <div class="tag">V კლასი</div>
-                <div class="tag">VI კლასი</div>
-                <div class="tag">VII კლასი</div>
-                <div class="tag">VIII კლასი</div>
-                <div class="tag">IX კლასი</div>
-                <div class="tag">X კლასი</div>
-                <div class="tag">XI კლასი</div>
-                <div class="tag">XII კლასი</div>
+        <!-- Class Container  -->
+        <div class="filter-container">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <!-- Grade  -->
+                <div class="content-container">
+                  <div id="class_1" onclick="addGradeFilter(this)" class="tag">
+                    I კლასი
+                  </div>
+                  <div id="class_2" onclick="addGradeFilter(this)" class="tag">
+                    II კლასი
+                  </div>
+                  <div id="class_3" onclick="addGradeFilter(this)" class="tag">
+                    III კლასი
+                  </div>
+                  <div id="class_4" onclick="addGradeFilter(this)" class="tag">
+                    IV კლასი
+                  </div>
+                  <div id="class_5" onclick="addGradeFilter(this)" class="tag">
+                    V კლასი
+                  </div>
+                  <div id="class_6" onclick="addGradeFilter(this)" class="tag">
+                    VI კლასი
+                  </div>
+                  <div id="class_7" onclick="addGradeFilter(this)" class="tag">
+                    VII კლასი
+                  </div>
+                  <div id="class_8" onclick="addGradeFilter(this)" class="tag">
+                    VIII კლასი
+                  </div>
+                  <div id="class_9" onclick="addGradeFilter(this)" class="tag">
+                    IX კლასი
+                  </div>
+                  <div id="class_10" onclick="addGradeFilter(this)" class="tag">
+                    X კლასი
+                  </div>
+                  <div id="class_11" onclick="addGradeFilter(this)" class="tag">
+                    XI კლასი
+                  </div>
+                  <div id="class_12" onclick="addGradeFilter(this)" class="tag">
+                    XII კლასი
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            ...
           </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
         </div>
+        <div id="containerHide" class="mainContainer">
+          <div class="containerCombine">
+            <div class="firstPart">
+              <div class="authorClass">
+                <!-- Autor Filter -->
+                <div id="authorClear" class="author"></div>
+                <!-- Grade Filter -->
+                <div id="classClear" class="gradeBox"></div>
+              </div>
+              <!-- Circle Filter -->
+              <div id="circleClear" class="circleBox"></div>
+            </div>
+
+            <!-- Clear all elements in Container -->
+            <div class="containerOptions">
+              <button
+                onclick="clearBox('authorClear','circleClear','classClear','.ase')"
+                class="clear"
+              >
+                <div>გასუფთავება</div>
+              </button>
+
+              <button class="search">ძებნა</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Math tasks -->
+      <section class="container">
+        <div class="grid-container">
+          <!-- row -->
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+          <!-- row -->
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+          <!-- row -->
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
+            <div class="checkSign"><span> &#9745; 3/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">ნინო ადამია</div>
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">IV</div>
+            </div>
+          </div>
+          <div class="card">
+            <p>სამკუთხედის ფართობი</p>
+            <div class="nonCheckSign"><span> &#9745; 2/3</span></div>
+            <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
+            <div class="tags-container">
+              <div class="tag">გიორგი თამაზაშვილი</div>
+              <div class="tag">II</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Pagination -->
+      <div class="pagination">
+        <!-- <span> &#9745;</span> -->
+        <button class="basebtn pre">
+          <img src="../static/assets/arrow1.png" alt="" />
+        </button>
+        <a href="#" class="initionDecoration active"> 01 </a>
+        <a href="#" class="initionDecoration"> 02 </a>
+        <a href="#" class="initionDecoration"> 03 </a>
+        <a href="#" class="initionDecoration"> 04 </a>
+        <a href="#" class="dots"> ... </a>
+        <a href="#" class="initionDecoration"> 40 </a>
+        <button class="basebtn next">
+          <img src="../static/assets/arrow.png" alt="" />
+        </button>
       </div>
-    </section>
-
-    <section class="container">
-      <div class="grid-container">
-        <!-- row -->
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-        <!-- row -->
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-        <!-- row -->
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>ორუცნობიანი განტოლებათა სისტემა და ფორმულა</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">ნინო ადამია</div>
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">IV</div>
-          </div>
-        </div>
-        <div class="card">
-          <p>სამკუთხედის ფართობი</p>
-          <img src="../static/assets/Ellipse 90.svg" alt="Ellipse" />
-          <div class="tags-container">
-            <div class="tag">გიორგი თამაზაშვილი</div>
-            <div class="tag">II</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </main>
+{#aq iyofa#}
     <script defer src="../static/js/main.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 {% endblock %}
+

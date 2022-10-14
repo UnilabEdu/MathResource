@@ -1,157 +1,416 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block link %}#}
+{#<link rel="stylesheet" href="../static/css/style.css" />#}
+{#{% endblock %}#}
+{##}
+{#{% block title %}#}
+{#Register Page#}
+{#{% endblock %}#}
+{##}
+{#{% block script_link %}#}
+{#<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>#}
+{#<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"#}
+{#          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#<form method="POST" action="{{url_for('auth.register_user')}}" class="register-form" id="register-form">#}
+{#    {{ form.hidden_tag() }}#}
+{##}
+{#    <h3>ახალი ანგარიშის შექმნა</h3>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#<!--        TODO: pass მეორდება for attribute-ებში -->#}
+{#      <label for="pass">სახელი</label>#}
+{#      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#      <div class="input-icons">#}
+{#          {{ form.first_name.label }}#}
+{#          {{ form.first_name }}#}
+{#        <div>#}
+{#          <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#          <i class="far fa-check-circle success-icon"></i>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">გვარი</label>#}
+{#      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#      <div class="input-icons">#}
+{#        {{ form.last_name(class="input", id="last_name") }}#}
+{#        <div>#}
+{#          <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#          <i class="far fa-check-circle success-icon"></i>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">რეგიონი</label>#}
+{#      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#      <div class="input-icons">#}
+{#        {{ form.region(class="input-icons", id="region") }}#}
+{#        <div>#}
+{#          <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#          <i class="far fa-check-circle success-icon"></i>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">სკოლა</label>#}
+{#      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div>#}
+{#      <div class="input-icons">#}
+{#        {{ form.school(class="input", id="school") }}#}
+{#        <div>#}
+{#          <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#          <i class="far fa-check-circle success-icon"></i>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">კლასი</label>#}
+{#      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div>#}
+{#      <div class="input-icons">#}
+{#        {{ form.school_class(class="input-icons", id="grade") }}#}
+{#        <div>#}
+{#          <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#          <i class="far fa-check-circle success-icon"></i>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">ი-მეილი</label>#}
+{#      <div class="email-msg sb4">ი-მეილი უკვე არსებობს</div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="input-icons">#}
+{#      {{ form.email(class="input", id="register_email") }}#}
+{#      <div>#}
+{#        <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#        <i class="far fa-check-circle success-icon"></i>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">პაროლი</label>#}
+{#      <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>#}
+{#    </div>#}
+{##}
+{#    <div class="input-icons">#}
+{#      {{ form.password(class="input", id="new_password") }}#}
+{#      <div>#}
+{#        <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#        <i class="far fa-check-circle success-icon"></i>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="msg-wrapper">#}
+{#      <label for="pass">გაიმეორეთ პაროლი</label>#}
+{#      <div class="email-msg sb4">პაროლი არ ემთხვევა</div>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="input-icons">#}
+{#      {{ form.pass_confirm(class="input", id="repeat_new_pass") }}#}
+{#      <div>#}
+{#        <i class="fas fa-exclamation-circle failure-icon"></i>#}
+{#        <i class="far fa-check-circle success-icon"></i>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="agree-policies-wrapper">#}
+{#      {{ form.rules }}#}
+{#        <label><a href="{{ url_for('main.terms_and_conditions') }}">ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს</a></label>#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#        {{ form.recaptcha }}#}
+{#    </div>#}
+{##}
+{#    <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">#}
+{#  </form>#}
+{#{% endblock %}#}
+
 {% extends "base.html" %}
 
 {% block link %}
-<link rel="stylesheet" href="../static/css/style.css" />
+ <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
 {% endblock %}
+{% block script_link %}
+    <script
+      src="https://kit.fontawesome.com/71fe441a00.js"
+      crossorigin="anonymous"
+    ></script>
 
+{% endblock %}
 {% block title %}
 Register Page
 {% endblock %}
 
-{% block script_link %}
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
 
-<form method="POST" action="{{url_for('auth.register_user')}}" class="register-form" id="register-form">
-    {{ form.hidden_tag() }}
-    
-    <h3>ახალი ანგარიშის შექმნა</h3>
+    <main class="mainRegistration">
+      <section class="registration-container" id="registration-container">
+        <h1></h1>
+        <form class="register-form" id="register-form">
+            {{ form.hidden_tag() }}
+          <h3>ახალი ანგარიშის შექმნა</h3>
+          <div class="msg-wrapper">
+            <label for="pass">სახელი</label>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <div>
 
-    <div class="msg-wrapper">
-<!--        TODO: pass მეორდება for attribute-ებში -->
-      <label for="pass">სახელი</label>
-      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
-    </div>
+            <div class="input-icons">
+                {{ form.first_name(class="input") }}
 
-    <div>
-      <div class="input-icons">
-          {{ form.first_name.label }}
-          {{ form.first_name }}
-        <div>
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-        </div>
-      </div>
-    </div>
+              <div>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="msg-wrapper">
+            <label for="pass">გვარი</label>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <div>
+            <div class="input-icons">
+                {{ form.last_name(class="input") }}
 
-    <div class="msg-wrapper">
-      <label for="pass">გვარი</label>
-      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
-    </div>
+              <div>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="msg-wrapper">
+            <label >რეგიონი</label>
 
-    <div>
-      <div class="input-icons">
-        {{ form.last_name(class="input", id="last_name") }}
-        <div>
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-        </div>
-      </div>
-    </div>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <!-- Custom select structure -->
+          <div class="customSelect selectVisual">
+            <div class="select-menu">
+                 <div class="select menuVisual menuVisual-one">
+                <span>{{ form.region() }}</span>
 
-    <div class="msg-wrapper">
-      <label for="pass">რეგიონი</label>
-      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
-    </div>
+                <i class="fas fa-angle-down"></i>
+              </div>
 
-    <div>
-      <div class="input-icons">
-        {{ form.region(class="input-icons", id="region") }}
-        <div>
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-        </div>
-      </div>
-    </div>
+              <div class="options-list optionVisual">
+                <div class="option">შიდა-ქართლი</div>
+                <div class="option">ქვემო-ქართლი</div>
+                <div class="option">სამცხე-ჯავახეთი</div>
+                <div class="option">მცხეთა-მთიანეთი</div>
+                <div class="option">კახეთი</div>
+                <div class="option">იმერეთი</div>
+                <div class="option">აჭარა</div>
+                <div class="option">სამეგრელო</div>
+                <div class="option">რაჭა-ლეჩხუმი</div>
+                <div class="option">სვანეთი</div>
+                <div class="option">აფხაზეთი</div>
+              </div>
 
-    <div class="msg-wrapper">
-      <label for="pass">სკოლა</label>
-      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
-    </div>
+              <div>
+                <i
+                  class="fas fa-exclamation-circle failure-icon"
+                  style="position: absolute; right: -152px; top: 18px"
+                ></i>
+                <i
+                  class="far fa-check-circle success-icon"
+                  style="
+                    position: absolute;
+                    right: -22px;
+                    transform: translateY(15px);
+                  "
+                ></i>
+              </div>
+            </div>
+          </div>
+          <!-- Custom select structure -->
+          <div class="msg-wrapper">
+            <label for="pass">სკოლა</label>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <div>
+            <div class="input-icons">
+              <input type="text" id="school" name="school" class="input" />
+              <div>
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="msg-wrapper">
+            <label for="pass">კლასი</label>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <!-- Custom select structure -->
+          <div class="customSelect selectVisual">
+            <div class="select-menu">
+              <div class="select2 menuVisual menuVisual-two">
+                <span></span>
+                <i class="fas fa-angle-down"></i>
+              </div>
+              <div class="options-list2 optionVisual">
+                <div class="option2">I</div>
+                <div class="option2">II</div>
+                <div class="option2">III</div>
+                <div class="option2">IV</div>
+                <div class="option2">V</div>
+                <div class="option2">VI</div>
+                <div class="option2">VII</div>
+                <div class="option2">VIII</div>
+                <div class="option2">IX</div>
+                <div class="option2">X</div>
+                <div class="option2">XI</div>
+                <div class="option2">XI</div>
+                <div class="option2">XII</div>
+              </div>
+              <div>
+                <i
+                  class="fas fa-exclamation-circle failure-icon"
+                  style="position: absolute; right: -152px; top: 18px"
+                ></i>
+                <i
+                  class="far fa-check-circle success-icon"
+                  style="
+                    position: absolute;
+                    right: -22px;
+                    transform: translateY(15px);
+                  "
+                ></i>
+              </div>
+            </div>
+          </div>
+          <!-- Custom select structure -->
+          <div class="msg-wrapper">
+            <label for="pass">ი-მეილი</label>
+            <div class="email-msg sb4">ამ ველის შეყვანა აუცილებელია</div>
+          </div>
+          <div class="input-icons">
+            <input type="text" name="email" class="input" id="register_email" />
+            <div>
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+            </div>
+          </div>
+          <!-- current password -->
+          <div class="msg-wrapper">
+            <label for="pass">პაროლი</label>
+            <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+          </div>
+          <div class="input-icons">
+            <input
+              class="input eyePassword"
+              id="id_password"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              required=""
+            />
+
+            <i
+              class="eyeBtn far fa-eye"
+              onclick="showPassword(`id_password`,this)"
+            ></i>
+            <div>
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+            </div>
+          </div>
+          <!-- repeat new password -->
+          <div class="msg-wrapper">
+            <label for="pass">გაიმეორეთ პაროლი</label>
+            <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
+          </div>
+          <div class="input-icons">
+            <input
+              class="eyePassword input"
+              id="repeat_new_pass"
+              type="password"
+              name="repeat_new_pass"
+              autocomplete="repeat_new_pass"
+              required=""
+            />
+
+            <i
+              class="eyeBtn far fa-eye"
+              onclick="showPassword(`repeat_new_pass`,this)"
+            ></i>
+            <div>
+              <i class="fas fa-exclamation-circle failure-icon"></i>
+              <i class="far fa-check-circle success-icon"></i>
+            </div>
+          </div>
+          <div class="agree-policies-wrapper">
+            <div class="policeDiv">
+              <input
+                type="checkbox"
+                id="agree-policies"
+                name="agreement"
+              /><label
+                onclick="location.href='./privacyPolicy.html'"
+                for="agreement"
+                >ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების
+                პირობებებს</label
+              >
+            </div>
+          </div>
+          <button type="button" class="enter" id="registration-button">
+            რეგისტრაცია
+          </button>
+        </form>
+      </section>
+      <section class="successful-registration" id="successful-registration">
+        <h2>თქვენ წარმატებით</h2>
+        <h2>დარეგისტრირდით</h2>
+        <p>დასადასტურებელი შეტყობინება გამოგზავნილია თქვენს ი-მეილზე</p>
+        <button
+          onclick="location.href='{{ url_for('main.main') }}'"
+          type="button"
+          class="homePage"
+          id="homePageBtn"
+        >
+          მთავარი გვერდი
+        </button>
+      </section>
+    </main>
 
 
-    <div>
-      <div class="input-icons">
-        {{ form.school(class="input", id="school") }}
-        <div>
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="msg-wrapper">
-      <label for="pass">კლასი</label>
-      <div class="email-msg sb4">ამ ველის შევსება აუცილებელია</div>
-    </div>
+<script src="../static/js/registration.js"></script>
+     <script src="../static/js/validators/registrationValidation.js"></script>
 
 
-    <div>
-      <div class="input-icons">
-        {{ form.school_class(class="input-icons", id="grade") }}
-        <div>
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-        </div>
-      </div>
-    </div>
 
-
-    <div class="msg-wrapper">
-      <label for="pass">ი-მეილი</label>
-      <div class="email-msg sb4">ი-მეილი უკვე არსებობს</div>
-    </div>
-
-
-    <div class="input-icons">
-      {{ form.email(class="input", id="register_email") }}
-      <div>
-        <i class="fas fa-exclamation-circle failure-icon"></i>
-        <i class="far fa-check-circle success-icon"></i>
-      </div>
-    </div>
-
-
-    <div class="msg-wrapper">
-      <label for="pass">პაროლი</label>
-      <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
-    </div>
-
-    <div class="input-icons">
-      {{ form.password(class="input", id="new_password") }}
-      <div>
-        <i class="fas fa-exclamation-circle failure-icon"></i>
-        <i class="far fa-check-circle success-icon"></i>
-      </div>
-    </div>
-
-    <div class="msg-wrapper">
-      <label for="pass">გაიმეორეთ პაროლი</label>
-      <div class="email-msg sb4">პაროლი არ ემთხვევა</div>
-    </div>
-
-
-    <div class="input-icons">
-      {{ form.pass_confirm(class="input", id="repeat_new_pass") }}
-      <div>
-        <i class="fas fa-exclamation-circle failure-icon"></i>
-        <i class="far fa-check-circle success-icon"></i>
-      </div>
-    </div>
-
-    <div class="agree-policies-wrapper">
-      {{ form.rules }}
-        <label><a href="{{ url_for('main.terms_and_conditions') }}">ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების პირობებებს</a></label>
-    </div>
-
-    <div>
-        {{ form.recaptcha }}
-    </div>
-
-    <input type="submit" class="enter" id="agree-policies" value="რეგისტრაცია">
-  </form>
 {% endblock %}
