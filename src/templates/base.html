@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     {% block link %}
 
     {% endblock %}
@@ -21,14 +22,9 @@
     <header>
       <nav>
         <div class="logo-wrapper">
-            <a href='/'>
-              <img
-                src="../static/assets/mathlogo.png"
-                height=50
-                alt="Logo"
-                loading="lazy"
-                style="margin-top: -1px;"
-              />
+            <a href='{{ url_for('main.main') }}'>
+                <div class="logo-wrapper">
+                    <img src="../static/assets/mathlogo.png" alt="logo" class="logo" /></div>
             </a>
         </div>
         <ul class="nav-links">
@@ -50,16 +46,36 @@
 
   {% endblock %}
 
-  <footer>
-      <ul class="footer-links">
-        <li>
-          <a href="{{ url_for('main.contacts') }}">კონტაქტი</a>
-        </li>
-        <li>
-          <a href="{{ url_for('main.terms_and_conditions')}}">კონფიდენციალურობის პოლიტიკა და გამოყენების პირობები</a>
-        </li>
-      </ul>
-  </footer>
+    <footer>
+      <!-- Copyright -->
+      <div class="copyRightDiv">
+        <div class="copyRightLink">
+          <a href="{{ url_for('main.terms_and_conditions')}}" class="privacy"
+            >კონფიდენციალურობის პოლიტიკა და გამოყენების პირობები</a
+          >
+        </div>
+        <div>
+          <div class="contactList">
+            <p class="contact">კონტაქტი</p>
+            <p class="contactEmail">
+              <a href="mailto: unilabinfo@iliauni.edu.ge"
+                >unilabinfo@iliauni.edu.ge</a
+              >
+            </p>
+            <p class="contactEmail">
+              <a href="https://www.facebook.com/" target="_blank"> Facebook</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="div-2">
+        <p>copyright</p>
+      </div>
+    </footer>
+    <script src="../static/js/home.js"></script>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
 </body>
 </html>
 
