@@ -1,4 +1,4 @@
-{% from "macro.html" import nav_bar_regular, button_filter_buttons%}
+{% from "macros/macro.html" import nav_bar_regular, button_filter_buttons%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +24,7 @@
         <div class="logo-wrapper">
             <a href='{{ url_for('main.main') }}'>
                 <div class="logo-wrapper">
-                    <img src="../static/assets/mathlogo.png" alt="logo" class="logo" /></div>
+                    <img src="../../static/assets/mathlogo.png" alt="logo" class="logo" /></div>
             </a>
         </div>
         <ul class="nav-links">
@@ -72,7 +72,7 @@
         <p>copyright</p>
       </div>
     </footer>
-    <script src="../static/js/home.js"></script>
+    <script src="../../static/js/home.js"></script>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 

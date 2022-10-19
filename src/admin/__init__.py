@@ -4,14 +4,11 @@ from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.fileadmin import FileAdmin
 from flask_admin.menu import MenuLink
 from flask_user import current_user
-from src.user.models import User
-from src.questions.models import UsersTasks
+from src.models.question import UsersTasks
 from markupsafe import Markup
 from flask_admin.helpers import get_form_data
-from flask_admin.form.fields import DateTimeField
 
-from src.extensions import db
-from src.user.models import User
+from src.models.user import User
 
 
 class AuthMixin(ModelView):

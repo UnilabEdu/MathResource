@@ -1,50 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends 'layouts/base.html' %}
+      {% block scrtipt_link %}
     <script
       src="https://kit.fontawesome.com/71fe441a00.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/global.css" />
+      {% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="../../static/css/global.css" />
     <title>Authorization</title>
+{% endblock %}
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="../index.html">
-          <div class="logo-wrapper">
-            <img src="../assets/mathlogo.png" alt="logo" class="logo" />
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li>
-            <a
-              href="authorization.html"
-              id="auth-link"
-              class="activeHeaderColor"
-              >ავტორიზაცია</a
-            >
-          </li>
-          <li>
-            <a href="about.html">პროექტის შესახებ</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    {% block content %}
     <main class="authorization">
       <section class="auth-container" id="auth-container">
         <h1></h1>
-        <form action="submit" class="auth-form" id="auth-form">
+        <form method="post" class="auth-form" id="auth-form">
+            {{ form.hidden_tag() }}
           <h3>ავტორიზაცია</h3>
           <div class="msg-wrapper">
             <label for="email">ი-მეილი</label>
             <div class="email-msg sb4">სცადეთ სხვა იმეილი</div>
           </div>
           <div class="input-icons">
-            <input type="text" name="email" class="input" id="email" />
+              {{ form.email( class="input") }}
             <div>
               <i class="fas fa-exclamation-circle failure-icon"></i>
               <i class="far fa-check-circle success-icon"></i>
@@ -55,14 +34,7 @@
             <div class="email-msg sb4">სცადეთ სხვა პაროლი</div>
           </div>
           <div class="input-icons">
-            <input
-              class="input eyePassword"
-              id="id_password"
-              type="password"
-              name="password"
-              autocomplete="current-password"
-              required=""
-            />
+             {{ form.password(class="input eyePassword", id="id_password", autocomplete="current-password") }}
 
             <i
               class="eyeBtn far fa-eye"
@@ -89,13 +61,7 @@
               პაროლის აღდგენა
             </button>
           </div>
-          <button
-            onclick="location.href='./mathProblems.html'"
-            type="button"
-            class="enter"
-            id="enter"
-          >
-            შესვლა
+            {{ form.submit(class="enter" ) }}
           </button>
           <button
             onclick="location.href='registration.html'"
@@ -159,7 +125,7 @@
       <!-- Copyright -->
       <div class="copyRightDiv">
         <div class="copyRightLink">
-          <a href="./privacyPolicy.html" class="privacy"
+          <a href="../main/privacyPolicy.html" class="privacy"
             >კონფიდენციალურობის პოლიტიკა და გამოყენების პირობები</a
           >
         </div>
@@ -181,7 +147,8 @@
         <p>copyright</p>
       </div>
     </footer>
-    <script src="../js/app.js"></script>
-    <script src="../js/validators/authorizationValidation.js"></script>
+    <script src="../../static/js/app.js"></script>
+    <script src="../../static/js/validators/authorizationValidation.js"></script>
   </body>
-</html>
+
+{% endblock %}

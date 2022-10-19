@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block link %}
 <link
@@ -15,7 +15,7 @@ Contacts
 {% endblock %}
 
 {% block script_link %}
-<link rel="stylesheet" href="../static/css/style.css" />
+<link rel="stylesheet" href="../../static/css/style.css" />
 {% endblock %}
 
 {% block content %}
@@ -24,7 +24,7 @@ Contacts
       <nav>
         <a href="{{ url_for('main.main') }}">
           <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+            <img src="../../static/assets/mathlogo.png" alt="logo" class="logo" />
           </div>
         </a>
         <ul class="nav-links">
@@ -72,5 +72,5 @@ Contacts
       </div>
     </section>
 
-    <script defer src="../static/js/main.js"></script>
+    <script defer src="../../static/js/main.js"></script>
 {% endblock %}

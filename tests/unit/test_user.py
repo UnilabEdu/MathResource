@@ -1,6 +1,6 @@
 import pytest
 
-from src.user.models import User
+from models.models import User
 from src import create_app
 
 

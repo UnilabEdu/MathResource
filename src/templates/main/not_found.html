@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block link %}
 <link
@@ -15,7 +15,7 @@ page not found
 {% endblock %}
 
 {% block script_link %}
-<link rel="stylesheet" href="../static/css/style.css" />
+<link rel="stylesheet" href="../../static/css/style.css" />
 {% endblock %}
 
 {% block content %}
@@ -23,11 +23,11 @@ page not found
     <header>
       <nav>
         <div class="logo-wrapper">
-          <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+          <img src="../../static/assets/mathlogo.png" alt="logo" class="logo" />
         </div>
         <ul class="nav-links">
           <li>
-            <a href="auth.html" id="auth-link">ავტორიზაცია</a>
+            <a href="../auth/auth.html" id="auth-link">ავტორიზაცია</a>
           </li>
           <li>
             <a href="about.html">პროექტის შესახებ</a>
@@ -55,5 +55,5 @@ page not found
       </div>
     </section>
 
-    <script defer src="../static/js/main.js"></script>
+    <script defer src="../../static/js/main.js"></script>
 {% endblock %}

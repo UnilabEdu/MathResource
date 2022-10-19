@@ -1,22 +1,18 @@
 import datetime
-import uuid
-import os
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, login_required, logout_user
-from flask_mail import Message
 from flask_user import current_user
-from src.user.forms import RegistrationForm, LoginForm, ForgotForm, UpdatePass, UpdateProfile
-from src.user.models import User, BaseModel
-from src.extensions import login_manager, mail, db
-from sqlalchemy.sql import func
+from src.views.auth.forms import RegistrationForm, LoginForm, ForgotForm, UpdatePass, UpdateProfile
+from src.models.user import User
+from src.extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.config import TestConfig
 from itsdangerous import URLSafeSerializer
-from src.mail_funcs.funcs import send_mail, generate_confirmation_token, confirm_token
-
+from utils import send_mail, generate_confirmation_token, confirm_token
+from src.config import Constants
 auth_blueprint = Blueprint('auth',
                            __name__,
-                           template_folder='templates')
+                           template_folder=Constants.TEMPLATE_FOLDER)
 
 ts = URLSafeSerializer(TestConfig.SECRET_KEY)
 
@@ -37,13 +33,13 @@ def register_user():
 
         token = generate_confirmation_token(form.email.data)
         confirm_url = url_for('auth.confirm', token=token, _external=True)
-        html = render_template('verify.html', confirm_url=confirm_url)
+        html = render_template('auth/verify.html', confirm_url=confirm_url)
 
         send_mail(form.email.data, html)
 
         return redirect(url_for('auth.login'))
 
-    return render_template('register.html', form=form)
+    return render_template('auth/register.html', form=form)
 
 
 @auth_blueprint.route('/confirm/<token>')
@@ -78,7 +74,7 @@ def login():
                 flash('login failed', 'danger')
         else:
             return redirect(url_for('auth.login_error'))
-    return render_template("auth.html", form=form)
+    return render_template("auth/authorization.html", form=form)
 
 
 # @auth_blueprint.route('/profile', methods=['GET', 'POST'])
@@ -120,20 +116,20 @@ def update_profile():
         try:
             db.session.commit()
             flash('Profile Updated')
-            return render_template('user_profile.html',
+            return render_template('auth/user_profile.html',
                                    form=form,
                                    user_to_update=user_to_update)
         except:
             flash('Error!  Looks like there was a problem...try again!')
-            return render_template('user_profile.html',
+            return render_template('auth/user_profile.html',
                                    form=form,
                                    user_to_update=user_to_update)
     else:
-        return render_template('user_profile.html',
+        return render_template('auth/user_profile.html',
                                form=form,
                                user_to_update=user_to_update)
 
-    return render_template('user_profile.html')
+    return render_template('auth/user_profile.html')
 
 
 @auth_blueprint.route('/logout', methods=['GET', 'POST'])
@@ -152,12 +148,12 @@ def reset():
         if user:
             token = generate_confirmation_token(form.email.data)
             confirm_url = url_for('auth.reset_verified', token=token, _external=True)
-            html = render_template('password_reset_link.html', confirm_url=confirm_url)
+            html = render_template('auth/password_reset_link.html', confirm_url=confirm_url)
 
             send_mail(user.email, html)
 
         return redirect(url_for('auth.login'))
-    return render_template('forgot.html', form=form)
+    return render_template('auth/forgot.html', form=form)
 
 
 @auth_blueprint.route('/password_reset_verified/<token>', methods=['GET', 'POST'])
@@ -178,9 +174,9 @@ def reset_verified(token):
         user.save()
         return redirect(url_for('auth.login'))
 
-    return render_template('password_reset.html', form=form)
+    return render_template('auth/password_reset.html', form=form)
 
 
 @auth_blueprint.route('/login_error', methods=['GET', 'POST'])
 def login_error():
-    return render_template('login_error.html')
+    return render_template('auth/login_error.html')
