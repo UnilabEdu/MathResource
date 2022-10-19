@@ -156,14 +156,14 @@
 {#  </form>#}
 {#{% endblock %}#}
 
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block link %}
  <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../../static/css/global.css" />
 {% endblock %}
 {% block script_link %}
     <script
@@ -380,7 +380,7 @@ Register Page
                 id="agree-policies"
                 name="agreement"
               /><label
-                onclick="location.href='./privacyPolicy.html'"
+                onclick="location.href='../main/privacyPolicy.html'"
                 for="agreement"
                 >ვეთანხმები კონფიდენციალურობის პოლიტიკას და გამოყენების
                 პირობებებს</label
@@ -408,8 +408,8 @@ Register Page
     </main>
 
 
-<script src="../static/js/registration.js"></script>
-     <script src="../static/js/validators/registrationValidation.js"></script>
+<script src="../../static/js/registration.js"></script>
+     <script src="../../static/js/validators/registrationValidation.js"></script>
 
 
 

@@ -1,14 +1,11 @@
-import datetime
-
-from flask import Flask, render_template_string
+from flask import Flask
 from flask_user import UserManager
 from src.config import TestConfig
 from src.extensions import db, login_manager, migrate, mail
-from src.user.models import User, Roles, Contacts, About, Team, Documents
-from src.questions.models import Answer, UsersTasks
+from src.models.user import User, Roles, Contacts, About, Team, Documents
+from src.models.question import UsersTasks
 
-from src.admin import admin, UserView, RoleView, MenuLink, StaticView, UsersTasksView, UserRolesView, \
-    ContactsView, AboutView, TeamView, DocumentsView
+from src.admin import admin, UserView, RoleView, MenuLink, StaticView, UsersTasksView, ContactsView, AboutView, TeamView, DocumentsView
 
 
 def create_app():
@@ -46,8 +43,8 @@ def register_extension(app):
 
 
 def register_blueprints(app):
-    from src.user.views import auth_blueprint
-    from src.front_end.views import main_blueprint
+    from src.views.auth.routes import auth_blueprint
+    from src.views.main.routes import main_blueprint
     from src.admin.views import admins_blueprint
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)

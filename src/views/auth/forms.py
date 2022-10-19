@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, EmailField, SelectField, BooleanField, validators
-from wtforms.validators import DataRequired, Email, EqualTo, Length, Optional, email_validator
+from wtforms.validators import DataRequired, EqualTo, Length
 from wtforms import ValidationError
-from src.user.models import User
+from src.models.user import User
 
 
 class RegistrationForm(FlaskForm):
@@ -68,7 +68,7 @@ class LoginForm(FlaskForm):
     pass_confirm = StringField()
     rules = StringField()
     login = SubmitField('Login')
-    submit = SubmitField()
+    submit = SubmitField('შესვლა')
 
 
 class ForgotForm(FlaskForm):

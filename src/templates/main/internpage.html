@@ -1,22 +1,22 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../../static/css/global.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
       <nav>
-        <a href="../templates/index.html">
+        <a href="index.html">
           <div class="logo-wrapper">
-            <img src="../static/assets/mathlogo.png" alt="logo" class="logo" />
+            <img src="../../static/assets/mathlogo.png" alt="logo" class="logo" />
           </div>
         </a>
         <ul class="nav-links">
           <li>
-            <a href="./myProfile.html" id="auth-link">ზურაბ კალმახელიძე</a>
+            <a href="../auth/myProfile.html" id="auth-link">ზურაბ კალმახელიძე</a>
           </li>
           <li>
             <a href="about.html">პროექტის შესახებ</a>
@@ -27,7 +27,7 @@
     <h1></h1>
     <main class="internPage">
       <div class="internTitle">
-        <img src="../static/assets/Ellipse 102.svg" alt="" />
+        <img src="../../static/assets/Ellipse%20102.svg" alt="" />
         <span>ორუცნობიან განტოლებათა სისტემა და ფორმულა</span>
       </div>
       <div class="internAuthor">
@@ -47,15 +47,15 @@
       <div class="assignments">
         <div class="totalTasks"><span>სულ: 3</span></div>
         <div class="doneTask">
-          <img src="../static/assets/Icondone.svg" alt="" /> <span>1</span>
+          <img src="../../static/assets/Icondone.svg" alt="" /> <span>1</span>
         </div>
         <div class="activeTask"><img src="" alt="" /> <span>2</span></div>
         <div class="passiveTask"><img src="" alt="" /> <span>3</span></div>
         <div class="hintTask">
-          <img src="../static/assets/Icondone.svg" alt="" /> <span>4</span>
+          <img src="../../static/assets/Icondone.svg" alt="" /> <span>4</span>
         </div>
         <div class="wrongTask">
-          <img src="../static/assets/icon-cancel.svg" alt="" /> <span>5</span>
+          <img src="../../static/assets/icon-cancel.svg" alt="" /> <span>5</span>
         </div>
       </div>
       <div class="internMathProblem">
@@ -131,7 +131,7 @@
       <!-- Copyright -->
       <div class="copyRightDiv">
         <div class="copyRightLink">
-          <a href="./privacyPolicy.html" class="privacy"
+          <a href="privacyPolicy.html" class="privacy"
             >კონფიდენციალურობის პოლიტიკა და გამოყენების პირობები</a
           >
         </div>
@@ -153,6 +153,6 @@
         <p>copyright</p>
       </div>
     </footer>
-    <script src="../static/js/internPage.js"></script>
+    <script src="../../static/js/internPage.js"></script>
   </body>
 </html>

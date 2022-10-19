@@ -33,3 +33,6 @@ class TestConfig(object):
     MAIL_USE_SSL = False
 
     SECURITY_PASSWORD_SALT = 'my_precious_two'
+
+class Constants(object):
+    TEMPLATE_FOLDER = '../../templates'

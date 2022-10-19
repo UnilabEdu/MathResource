@@ -1,5 +1,5 @@
-from src.user.models import User, Roles, Team
-from src.questions.models import UsersTasks, Task
+from models.models import User, Roles, Team
+from models.models import UsersTasks
 from src.extensions import db
 from werkzeug.security import generate_password_hash
 from src import create_app
